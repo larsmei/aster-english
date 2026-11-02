@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="1.8873611mm"
+   height="1.42875mm"
+   id="svg58"
+   sodipodi:docname="1000036A00000AF500000845CCFC495C3D936127.wmf">
+  <metadata
+     id="metadata62">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview60" />
+  <defs
+     id="defs12">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipWmfPath1">
+      <path
+         d="M 0.73333333,0.93333333 L 6.9333333,0.93333333 L 6.9333333,1.9333333 L 0.73333333,1.9333333 z"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipWmfPath2">
+      <path
+         d="M 0.73333333,1.9333333 L 6.4666667,1.9333333 L 6.4666667,4.8666667 L 0.73333333,4.8666667 z"
+         id="path5" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipWmfPath3">
+      <path
+         d="M 6.4666667,0.93333333 L 6.9333333,0.93333333 L 6.9333333,4.8666667 L 6.4666667,4.8666667 z"
+         id="path8" />
+    </clipPath>
+    <pattern
+       id="WMFhbasepattern"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+  </defs>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     clip-path="url(#clipWmfPath1)"
+     d="  M -5.4666667,2.9333333   L 13.133333,-0.066666667  "
+     id="path14" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     clip-path="url(#clipWmfPath2)"
+     d="  M -5,-1   L 12.2,7.8  "
+     id="path16" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     clip-path="url(#clipWmfPath3)"
+     d="  M 7.4,-3   L 6,8.8  "
+     id="path18" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.687500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,4.733333,5.133333)"
+     x="0.000000"
+     y="0.000000"
+     id="text24"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan22"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.687500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Helvetica;"
+         id="tspan20">D</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:0.687500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,4.733333,5.133333)"
+     x="0.133333"
+     y="-4.533333"
+     id="text30"><tspan
+       sodipodi:role="line"
+       x="0.133333"
+       y="-4.533333"
+       id="tspan28"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.687500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Helvetica;"
+         id="tspan26">G</tspan></tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     d="  M 2.4,2.8 A 0.53333333,1.1666667 0  0,0 2.9333265,1.6274075   "
+     id="path32" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.625000px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,3.066667,2.400000)"
+     x="0.000000"
+     y="0.000000"
+     id="text38"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan36"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.625000px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan34">α</tspan></tspan></text>
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:none;"
+     cx="5.5666667"
+     cy="1.1666667"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse40" />
+  <ellipse
+     style="fill:none;stroke:#ffffff;stroke-width:0.13333334px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="5.5666667"
+     cy="1.1666667"
+     rx="0.23333333"
+     ry="0.23333333"
+     id="ellipse42" />
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:none;"
+     cx="5.4333333"
+     cy="4.3666667"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse44" />
+  <ellipse
+     style="fill:none;stroke:#ffffff;stroke-width:0.13333334px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="5.4333333"
+     cy="4.3666667"
+     rx="0.23333333"
+     ry="0.23333333"
+     id="ellipse46" />
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:none;"
+     cx="0.83333333"
+     cy="1.9"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse48" />
+  <ellipse
+     style="fill:none;stroke:#ffffff;stroke-width:0.13333334px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="0.83333333"
+     cy="1.9"
+     rx="0.23333333"
+     ry="0.23333333"
+     id="ellipse50" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,0.000000,1.466667)"
+     x="0.000000"
+     y="0.000000"
+     id="text56"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan54"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan52">Oz</tspan></tspan></text>
+</svg>

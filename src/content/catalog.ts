@@ -1,19 +1,39 @@
 export type Lang = "en" | "fr";
 
+export type PartId =
+  | "U0"
+  | "U1"
+  | "U2"
+  | "U3"
+  | "U4"
+  | "U7"
+  | "R0"
+  | "R3"
+  | "R4"
+  | "R5"
+  | "R6"
+  | "R7";
+
 export type DocMeta = {
   id: string;
-  part: "U0" | "U1" | "U2" | "U3" | "U4" | "U7";
+  part: PartId;
   sourceUrl: string;
   blurb: Record<Lang, string>;
 };
 
-export const PARTS: { id: "U0" | "U1" | "U2" | "U3" | "U4" | "U7"; en: string; fr: string }[] = [
-  { id: "U0", en: "How to read the manual", fr: "Guide de lecture" },
-  { id: "U1", en: "Getting started", fr: "Prise en main" },
-  { id: "U2", en: "Methodology", fr: "Méthodologie" },
-  { id: "U3", en: "Data files", fr: "Fichiers de données" },
-  { id: "U4", en: "Commands", fr: "Commandes" },
-  { id: "U7", en: "External interfaces", fr: "Interfaces externes" },
+export const PARTS: { id: PartId; book: "U" | "R"; en: string; fr: string }[] = [
+  { id: "U0", book: "U", en: "How to read the manual", fr: "Guide de lecture" },
+  { id: "U1", book: "U", en: "Getting started", fr: "Prise en main" },
+  { id: "U2", book: "U", en: "Methodology", fr: "Méthodologie" },
+  { id: "U3", book: "U", en: "Data files", fr: "Fichiers de données" },
+  { id: "U4", book: "U", en: "Commands", fr: "Commandes" },
+  { id: "U7", book: "U", en: "External interfaces", fr: "Interfaces externes" },
+  { id: "R0", book: "R", en: "How to read the reference", fr: "Guide de la référence" },
+  { id: "R3", book: "R", en: "Finite-element models", fr: "Modèles éléments finis" },
+  { id: "R4", book: "R", en: "Physical formulations", fr: "Formulations physiques" },
+  { id: "R5", book: "R", en: "Analysis methods", fr: "Méthodes de résolution" },
+  { id: "R6", book: "R", en: "Linear solvers", fr: "Solveurs linéaires" },
+  { id: "R7", book: "R", en: "Constitutive laws", fr: "Lois de comportement" },
 ];
 
 export const CATALOG: DocMeta[] = [
@@ -3525,6 +3545,2094 @@ export const CATALOG: DocMeta[] = [
     blurb: {
       en: "Écrire un champ de grandeur ou un concept résultat au format 'GMSH'.",
       fr: "Écrire un champ de grandeur ou un concept résultat au format 'GMSH'.",
+    },
+  },
+  {
+    id: "r0.00.01",
+    part: "R0",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r0/r0.00.01/index.html",
+    blurb: {
+      en: "Ce document est un inventaire des documents de référence. Ceux-ci sont regroupés par fonctionnalités .",
+      fr: "Ce document est un inventaire des documents de référence. Ceux-ci sont regroupés par fonctionnalités .",
+    },
+  },
+  {
+    id: "r0.00.02",
+    part: "R0",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r0/r0.00.02/index.html",
+    blurb: {
+      en: "Ce document constitue un inventaire évolutif des références externes publiées valorisant code_aster sur des applications représentatives de dossiers industriels. Celles-ci sont…",
+      fr: "Ce document constitue un inventaire évolutif des références externes publiées valorisant code_aster sur des applications représentatives de dossiers industriels. Celles-ci sont…",
+    },
+  },
+  {
+    id: "r3.01.00",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.01.00/index.html",
+    blurb: {
+      en: "Ce document présente les fondements des éléments finis iso-paramétriques introduits dans *Code_Aster* pour la modélisation des milieux continus 2D et 3D. On rappelle tout…",
+      fr: "Ce document présente les fondements des éléments finis iso-paramétriques introduits dans *Code_Aster* pour la modélisation des milieux continus 2D et 3D. On rappelle tout…",
+    },
+  },
+  {
+    id: "r3.01.01",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.01.01/index.html",
+    blurb: {
+      en: "On décrit la géométrie et la topologie des éléments finis; pour chaque élément de référence, l’expression des fonctions de forme et les différentes familles de points…",
+      fr: "On décrit la géométrie et la topologie des éléments finis; pour chaque élément de référence, l’expression des fonctions de forme et les différentes familles de points…",
+    },
+  },
+  {
+    id: "r3.03.01",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.03.02",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.02/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r3.03.03",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.03.04",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.04/index.html",
+    blurb: {
+      en: "Un chargement de pression en grands déplacements est un chargement suiveur. En employant des éléments de peau, on est amené à calculer, d'une part, un second membre dont le…",
+      fr: "Un chargement de pression en grands déplacements est un chargement suiveur. En employant des éléments de peau, on est amené à calculer, d'une part, un second membre dont le…",
+    },
+  },
+  {
+    id: "r3.03.05",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.05/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.03.06",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.06/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.03.07",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.07/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.03.08",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.08/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.03.09",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.03.09/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.06.02",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.02/index.html",
+    blurb: {
+      en: "On décrit l'expression des termes élémentaires intervenant dans la modélisation linéaire de l'équation de la chaleur et dans les post-traitements. On donne l'expression…",
+      fr: "On décrit l'expression des termes élémentaires intervenant dans la modélisation linéaire de l'équation de la chaleur et dans les post-traitements. On donne l'expression…",
+    },
+  },
+  {
+    id: "r3.06.03",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.06.04",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.04/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r3.06.07",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.07/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.06.08",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.08/index.html",
+    blurb: {
+      en: "Dans certaines situations, le comportement mécanique du matériau impose que la dilatation volumique reste nulle, autrement dit que la déformation se fasse à volume constant :…",
+      fr: "Dans certaines situations, le comportement mécanique du matériau impose que la dilatation volumique reste nulle, autrement dit que la déformation se fasse à volume constant :…",
+    },
+  },
+  {
+    id: "r3.06.09",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.09/index.html",
+    blurb: {
+      en: "Cette documentation porte sur la description des éléments finis de joint mécanique linéaire et quadratique. Les modélisations en mécanique pure (xxx_JOINT) supportent les deux…",
+      fr: "Cette documentation porte sur la description des éléments finis de joint mécanique linéaire et quadratique. Les modélisations en mécanique pure (xxx_JOINT) supportent les deux…",
+    },
+  },
+  {
+    id: "r3.06.10",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.10/index.html",
+    blurb: {
+      en: "Malgré tout le potentiel de l’élément quadrilatère isoparamétrique linéaire pour le calcul par éléments finis, l’application d'une formulation bilinéaire classique pour définir…",
+      fr: "Malgré tout le potentiel de l’élément quadrilatère isoparamétrique linéaire pour le calcul par éléments finis, l’application d'une formulation bilinéaire classique pour définir…",
+    },
+  },
+  {
+    id: "r3.06.11",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.11/index.html",
+    blurb: {
+      en: "L'élément hexaédrique à 8 nœuds sous-intégré standard à 1 point d'intégration introduit des modes parasites associés à une énergie nulle (modes de sablier) et peut conduire à…",
+      fr: "L'élément hexaédrique à 8 nœuds sous-intégré standard à 1 point d'intégration introduit des modes parasites associés à une énergie nulle (modes de sablier) et peut conduire à…",
+    },
+  },
+  {
+    id: "r3.06.13",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.13/index.html",
+    blurb: {
+      en: "Ce document présente un élément fini d’interface mixte pour des modèles de zone cohésive. Les mots clés correspondant pour les modélisations dans *Code_Aster* sont…",
+      fr: "Ce document présente un élément fini d’interface mixte pour des modèles de zone cohésive. Les mots clés correspondant pour les modélisations dans *Code_Aster* sont…",
+    },
+  },
+  {
+    id: "r3.06.14",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.14/index.html",
+    blurb: {
+      en: "Ce document présente les méthodes HHO pour les problèmes en mécanique non-linéaire (petites et grandes déformations) et thermique linéaire et non-linéaire. Les mots clés…",
+      fr: "Ce document présente les méthodes HHO pour les problèmes en mécanique non-linéaire (petites et grandes déformations) et thermique linéaire et non-linéaire. Les mots clés…",
+    },
+  },
+  {
+    id: "r3.06.15",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.06.15/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.07.02",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.02/index.html",
+    blurb: {
+      en: "On présente une formulation numérique pour la modélisation des structures à surface moyenne de géométrie particulière: coques à symétrie de révolution autour de l’axe…",
+      fr: "On présente une formulation numérique pour la modélisation des structures à surface moyenne de géométrie particulière: coques à symétrie de révolution autour de l’axe…",
+    },
+  },
+  {
+    id: "r3.07.03",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.03/index.html",
+    blurb: {
+      en: "Ces modélisations d’éléments finis de plaque sont destinées aux calculs en petites déformations et petits déplacements de structures minces courbes ou planes. Ce sont des…",
+      fr: "Ces modélisations d’éléments finis de plaque sont destinées aux calculs en petites déformations et petits déplacements de structures minces courbes ou planes. Ce sont des…",
+    },
+  },
+  {
+    id: "r3.07.04",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.04/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.07.05",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.05/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.07.06",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.06/index.html",
+    blurb: {
+      en: "Les éléments de plaque R3.07.03 sont destinés aux calculs de structures minces tridimensionnelles. Le feuillet moyen de ces structures ne coïncide pas toujours avec le plan…",
+      fr: "Les éléments de plaque R3.07.03 sont destinés aux calculs de structures minces tridimensionnelles. Le feuillet moyen de ces structures ne coïncide pas toujours avec le plan…",
+    },
+  },
+  {
+    id: "r3.07.09",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.09/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r3.07.10",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.10/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.07.11",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.07.11/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.08.01",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.08.02",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.02/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.08.03",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.03/index.html",
+    blurb: {
+      en: "On présente le principe du calcul des différentes grandeurs caractéristiques des sections de poutres. Celles-ci sont établies à partir des caractéristiques géométriques de la…",
+      fr: "On présente le principe du calcul des différentes grandeurs caractéristiques des sections de poutres. Celles-ci sont établies à partir des caractéristiques géométriques de la…",
+    },
+  },
+  {
+    id: "r3.08.04",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.04/index.html",
+    blurb: {
+      en: "Ce document présente l’élément POU_D_TG qui est un élément fini de poutre droite avec prise en compte du gauchissement des sections. Il permet le calcul des poutres à sections…",
+      fr: "Ce document présente l’élément POU_D_TG qui est un élément fini de poutre droite avec prise en compte du gauchissement des sections. Il permet le calcul des poutres à sections…",
+    },
+  },
+  {
+    id: "r3.08.05",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.05/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.08.06",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.06/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.08.07",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.07/index.html",
+    blurb: {
+      en: "Ce document décrit la formulation et l’implantation dans *Code_Aster* des éléments MEMBRANE et GRILLE_MEMBRANE. Les éléments MEMBRANE permettent de modéliser un comportement…",
+      fr: "Ce document décrit la formulation et l’implantation dans *Code_Aster* des éléments MEMBRANE et GRILLE_MEMBRANE. Les éléments MEMBRANE permettent de modéliser un comportement…",
+    },
+  },
+  {
+    id: "r3.08.08",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.08/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r3.08.09",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.09/index.html",
+    blurb: {
+      en: "Ce document présente le traitement des grands déplacements de l'élément de poutre multi-fibres POU_D_TGM activé par le mot-clé DEFORMATION='GROT_GDEP'.",
+      fr: "Ce document présente le traitement des grands déplacements de l'élément de poutre multi-fibres POU_D_TGM activé par le mot-clé DEFORMATION='GROT_GDEP'.",
+    },
+  },
+  {
+    id: "r3.08.10",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.08.10/index.html",
+    blurb: {
+      en: "L'élément CABLE_GAINE présenté dans ce document a pour but de modéliser des câbles de précontrainte pouvant frotter ou glisser dans leurs gaines et donc ne suivant pas…",
+      fr: "L'élément CABLE_GAINE présenté dans ce document a pour but de modéliser des câbles de précontrainte pouvant frotter ou glisser dans leurs gaines et donc ne suivant pas…",
+    },
+  },
+  {
+    id: "r3.11.01",
+    part: "R3",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r3/r3.11.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.01.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.01.01/index.html",
+    blurb: {
+      en: "On étend les résultats de la théorie des éléments de plaques exposés dans la documentation r3.07.03 au cas des matériaux orthotropes multi-couches. La documentation proposée…",
+      fr: "On étend les résultats de la théorie des éléments de plaques exposés dans la documentation r3.07.03 au cas des matériaux orthotropes multi-couches. La documentation proposée…",
+    },
+  },
+  {
+    id: "r4.01.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.01.02/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.02.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.02.01/index.html",
+    blurb: {
+      en: "Ce document décrit en acoustique linéaire stationnaire à basse fréquence en milieu borné les équations utilisées, les formulations variationnelles qui en découlent ainsi que la…",
+      fr: "Ce document décrit en acoustique linéaire stationnaire à basse fréquence en milieu borné les équations utilisées, les formulations variationnelles qui en découlent ainsi que la…",
+    },
+  },
+  {
+    id: "r4.02.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.02.02/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.02.03",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.02.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.02.04",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.02.04/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.02.05",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.02.05/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.03.05",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.03.05/index.html",
+    blurb: {
+      en: "Ce document décrit deux approches probabilistes, l'une paramétrique et l'autre non paramétrique afin de prendre en compte les incertitudes de modèle et de modélisation pour les…",
+      fr: "Ce document décrit deux approches probabilistes, l'une paramétrique et l'autre non paramétrique afin de prendre en compte les incertitudes de modèle et de modélisation pour les…",
+    },
+  },
+  {
+    id: "r4.03.06",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.03.06/index.html",
+    blurb: {
+      en: "Dans ce document on présente les algorithmes de recalage implémentés dans MACR_RECAL. Il s’agit d'abord d’un algorithme de Levenberg-Marquardt avec bornes et ensuite d'un…",
+      fr: "Dans ce document on présente les algorithmes de recalage implémentés dans MACR_RECAL. Il s’agit d'abord d’un algorithme de Levenberg-Marquardt avec bornes et ensuite d'un…",
+    },
+  },
+  {
+    id: "r4.04.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.04.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.04.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.04.02/index.html",
+    blurb: {
+      en: "Ce document présente la modélisation mise en place dans *code_aster* pour l'analyse mécanique d’opérations générant des transformations métallurgiques. On présente les…",
+      fr: "Ce document présente la modélisation mise en place dans *code_aster* pour l'analyse mécanique d’opérations générant des transformations métallurgiques. On présente les…",
+    },
+  },
+  {
+    id: "r4.04.03",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.04.03/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.04.04",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.04.04/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.04.05",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.04.05/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.05.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.01/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.05.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.02/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.05.03",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.05.04",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.04/index.html",
+    blurb: {
+      en: "Ce document est une notice théorique décrivant les méthodes développées dans l'opérateur DYNA_ISS_VARI. Cet opérateur permet de traiter des problèmes d'interaction…",
+      fr: "Ce document est une notice théorique décrivant les méthodes développées dans l'opérateur DYNA_ISS_VARI. Cet opérateur permet de traiter des problèmes d'interaction…",
+    },
+  },
+  {
+    id: "r4.05.05",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.05/index.html",
+    blurb: {
+      en: "Dans les études sismiques «best-estimate», on est souvent amené à effectuer des analyses dynamiques transitoires. Le signal sismique est alors modélisé par un processus…",
+      fr: "Dans les études sismiques «best-estimate», on est souvent amené à effectuer des analyses dynamiques transitoires. Le signal sismique est alors modélisé par un processus…",
+    },
+  },
+  {
+    id: "r4.05.06",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.06/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.05.07",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.07/index.html",
+    blurb: {
+      en: "Ce document est une notice théorique décrivant la méthode Laplace-Temps ( *cf* . U2.06.05) développée dans l'opérateur CALC_MISS ( *cf* . U7.03.12) pour le type de résultat…",
+      fr: "Ce document est une notice théorique décrivant la méthode Laplace-Temps ( *cf* . U2.06.05) développée dans l'opérateur CALC_MISS ( *cf* . U7.03.12) pour le type de résultat…",
+    },
+  },
+  {
+    id: "r4.05.08",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.05.08/index.html",
+    blurb: {
+      en: "Dans les études sismiques, on est souvent amené à réaliser des spectres de plancher pour des bâtiments où les équipements sont modélisés par des masses ajoutées au plancher.…",
+      fr: "Dans les études sismiques, on est souvent amené à réaliser des spectres de plancher pour des bâtiments où les équipements sont modélisés par des masses ajoutées au plancher.…",
+    },
+  },
+  {
+    id: "r4.06.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.06.02/index.html",
+    blurb: {
+      en: "Ce rapport présente les bases théoriques des méthodes de calcul par synthèse modale. Nous débutons par la description de la transformation de RITZ et des méthodes de…",
+      fr: "Ce rapport présente les bases théoriques des méthodes de calcul par synthèse modale. Nous débutons par la description de la transformation de RITZ et des méthodes de…",
+    },
+  },
+  {
+    id: "r4.06.03",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.06.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.07.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.07.02/index.html",
+    blurb: {
+      en: "On décrit la modélisation des excitations turbulentes disponible dans *Code_Aster* et la manière dont ces dernières sont prises en compte dans un calcul de dynamique. Les…",
+      fr: "On décrit la modélisation des excitations turbulentes disponible dans *Code_Aster* et la manière dont ces dernières sont prises en compte dans un calcul de dynamique. Les…",
+    },
+  },
+  {
+    id: "r4.07.03",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.07.03/index.html",
+    blurb: {
+      en: "Ce document présente un aspect du couplage fluide/structure: lorsqu'une structure vibrante se trouve baignée par un fluide qu'on suppose sans écoulement, incompressible et non…",
+      fr: "Ce document présente un aspect du couplage fluide/structure: lorsqu'une structure vibrante se trouve baignée par un fluide qu'on suppose sans écoulement, incompressible et non…",
+    },
+  },
+  {
+    id: "r4.07.04",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.07.04/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.07.05",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.07.05/index.html",
+    blurb: {
+      en: "Cette note décrit un modèle obtenu par une méthode d’homogénéisation pour caractériser le comportement vibratoire d’un réseau périodique de tubes baignés par un fluide…",
+      fr: "Cette note décrit un modèle obtenu par une méthode d’homogénéisation pour caractériser le comportement vibratoire d’un réseau périodique de tubes baignés par un fluide…",
+    },
+  },
+  {
+    id: "r4.07.07",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.07.07/index.html",
+    blurb: {
+      en: "La macro-commande CALC_ESSAI rassemble les fonctionnalités de Code_Aster pour la corrélation calcul-essais. On décrit dans le cadre de cette documentation la fonctionnalité…",
+      fr: "La macro-commande CALC_ESSAI rassemble les fonctionnalités de Code_Aster pour la corrélation calcul-essais. On décrit dans le cadre de cette documentation la fonctionnalité…",
+    },
+  },
+  {
+    id: "r4.08.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.08.01/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.09.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.09.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r4.10.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.01/index.html",
+    blurb: {
+      en: "On expose dans ce document la méthode d'estimation de l'erreur de discrétisation proposée par ZHU‑ZIENKIEWICZ.",
+      fr: "On expose dans ce document la méthode d'estimation de l'erreur de discrétisation proposée par ZHU‑ZIENKIEWICZ.",
+    },
+  },
+  {
+    id: "r4.10.02",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.02/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.10.03",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.03/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.10.04",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.04/index.html",
+    blurb: {
+      en: "On propose ici une méthode qui vise à améliorer le traitement des singularités dans les stratégies d’adaptation de maillage avec le logiciel HOMARD (dans le cas du raffinement)…",
+      fr: "On propose ici une méthode qui vise à améliorer le traitement des singularités dans les stratégies d’adaptation de maillage avec le logiciel HOMARD (dans le cas du raffinement)…",
+    },
+  },
+  {
+    id: "r4.10.05",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.05/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r4.10.06",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.06/index.html",
+    blurb: {
+      en: "Dans ce document, on présente le cadre de l'estimation d'erreur en quantité d'intérêt. Ce cadre est utilisé avec des estimateurs en résidu explicites ainsi qu'avec des…",
+      fr: "Dans ce document, on présente le cadre de l'estimation d'erreur en quantité d'intérêt. Ce cadre est utilisé avec des estimateurs en résidu explicites ainsi qu'avec des…",
+    },
+  },
+  {
+    id: "r4.10.07",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.10.07/index.html",
+    blurb: {
+      en: "Ce document présente le principe du calcul de l'erreur en relation de comportement (ERC). Dans ce document, la résolution d'un tel problème est restreint au cas de la dynamique…",
+      fr: "Ce document présente le principe du calcul de l'erreur en relation de comportement (ERC). Dans ce document, la résolution d'un tel problème est restreint au cas de la dynamique…",
+    },
+  },
+  {
+    id: "r4.20.01",
+    part: "R4",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r4/r4.20.01/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.01.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.01.01/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.01.02",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.01.02/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.01.03",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.01.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.01.04",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.01.04/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.02.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.02.01/index.html",
+    blurb: {
+      en: "On présente l'algorithme de thermique transitoire linéaire implanté au sein de la commande THER_LINEAIRE U4.33.01 . Les différentes options de calcul nécessaires ont été…",
+      fr: "On présente l'algorithme de thermique transitoire linéaire implanté au sein de la commande THER_LINEAIRE U4.33.01 . Les différentes options de calcul nécessaires ont été…",
+    },
+  },
+  {
+    id: "r5.02.02",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.02.02/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.02.04",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.02.04/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.02",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.02/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.03",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.03/index.html",
+    blurb: {
+      en: "Ce document décrit une méthode générale d’intégration des modèles de comportements non linéaires (élastoplastiques, viscoplastiques, endommageants,...) en contraintes planes.",
+      fr: "Ce document décrit une méthode générale d’intégration des modèles de comportements non linéaires (élastoplastiques, viscoplastiques, endommageants,...) en contraintes planes.",
+    },
+  },
+  {
+    id: "r5.03.04",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.04/index.html",
+    blurb: {
+      en: "Ce document décrit l’intégration du modèle de comportement élasto-visco-plastique de Chaboche à écrouissage cinématique non linéaire et isotrope, avec prise en compte possible…",
+      fr: "Ce document décrit l’intégration du modèle de comportement élasto-visco-plastique de Chaboche à écrouissage cinématique non linéaire et isotrope, avec prise en compte possible…",
+    },
+  },
+  {
+    id: "r5.03.05",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.05/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.06",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.06/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.07",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.07/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.08",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.08/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.09",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.09/index.html",
+    blurb: {
+      en: "Ce document décrit les quantités calculées par l’opérateur STAT_NON_LINE nécessaires à la mise en œuvre de l’algorithme non linéaire quasi statique décrit en R5.03.01 dans le…",
+      fr: "Ce document décrit les quantités calculées par l’opérateur STAT_NON_LINE nécessaires à la mise en œuvre de l’algorithme non linéaire quasi statique décrit en R5.03.01 dans le…",
+    },
+  },
+  {
+    id: "r5.03.11",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.11/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.12",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.12/index.html",
+    blurb: {
+      en: "Ce document décrit l’intégration du modèle de comportement élasto-visco-plastique de Chaboche avec un écrouissage isotrope comportant un effet mémoire d’écrouissage et deux…",
+      fr: "Ce document décrit l’intégration du modèle de comportement élasto-visco-plastique de Chaboche avec un écrouissage isotrope comportant un effet mémoire d’écrouissage et deux…",
+    },
+  },
+  {
+    id: "r5.03.13",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.13/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.14",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.14/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.15",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.15/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.16",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.16/index.html",
+    blurb: {
+      en: "Ce document décrit une loi de comportement élastoplastique à écrouissage mixte, cinématique linéaire et isotrope non linéaire. Les équations à résoudre pour intégrer…",
+      fr: "Ce document décrit une loi de comportement élastoplastique à écrouissage mixte, cinématique linéaire et isotrope non linéaire. Les équations à résoudre pour intégrer…",
+    },
+  },
+  {
+    id: "r5.03.17",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.17/index.html",
+    blurb: {
+      en: "Ce document décrit les comportements non linéaires des éléments discrets qui sont appelés par les opérateurs de résolution de problèmes non linéaires STAT_NON_LINE ou…",
+      fr: "Ce document décrit les comportements non linéaires des éléments discrets qui sont appelés par les opérateurs de résolution de problèmes non linéaires STAT_NON_LINE ou…",
+    },
+  },
+  {
+    id: "r5.03.19",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.19/index.html",
+    blurb: {
+      en: "On décrit ici des lois de comportement hyper-élastique adoptées pour les élastomères. Les cas compressible et incompressible sont présentés.",
+      fr: "On décrit ici des lois de comportement hyper-élastique adoptées pour les élastomères. Les cas compressible et incompressible sont présentés.",
+    },
+  },
+  {
+    id: "r5.03.20",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.20/index.html",
+    blurb: {
+      en: "On se propose de décrire ici une relation de comportement élastique non linéaire qui coïncide avec la loi élastoplastique de Hencky-VonMises (écrouissage isotrope) dans le cas…",
+      fr: "On se propose de décrire ici une relation de comportement élastique non linéaire qui coïncide avec la loi élastoplastique de Hencky-VonMises (écrouissage isotrope) dans le cas…",
+    },
+  },
+  {
+    id: "r5.03.21",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.21/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.22",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.22/index.html",
+    blurb: {
+      en: "On décrit ici la formulation adoptée pour traiter des grandes rotations et des petites déformations. Cette formulation est valable pour toutes les lois de comportement définies…",
+      fr: "On décrit ici la formulation adoptée pour traiter des grandes rotations et des petites déformations. Cette formulation est valable pour toutes les lois de comportement définies…",
+    },
+  },
+  {
+    id: "r5.03.23",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.23/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.24",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.24/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.25",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.25/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle de comportement élastique fragile ENDO_SCALAIRE disponible seulement pour la modélisation non locale à gradient d'endommagement GRAD_VARI.…",
+      fr: "Ce document décrit le modèle de comportement élastique fragile ENDO_SCALAIRE disponible seulement pour la modélisation non locale à gradient d'endommagement GRAD_VARI.…",
+    },
+  },
+  {
+    id: "r5.03.27",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.27/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.28",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.28/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle de comportement élastique fragile ENDO_FISS_EXP, disponible en modélisation non locale à gradient d'endommagement GRAD_VARI. L’endommagement y est…",
+      fr: "Ce document décrit le modèle de comportement élastique fragile ENDO_FISS_EXP, disponible en modélisation non locale à gradient d'endommagement GRAD_VARI. L’endommagement y est…",
+    },
+  },
+  {
+    id: "r5.03.29",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.29/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle d’endommagement ductilede Gurson – Tvergaard – Needleman (GTN). Il est disponible en version locale et à gradient de variables internes (GRAD_VARI…",
+      fr: "Ce document décrit le modèle d’endommagement ductilede Gurson – Tvergaard – Needleman (GTN). Il est disponible en version locale et à gradient de variables internes (GRAD_VARI…",
+    },
+  },
+  {
+    id: "r5.03.31",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.31/index.html",
+    blurb: {
+      en: "Ce document décrit le comportement élasto-plastique non linéaire d’une fondation superficielle rectangulaire soumise à une sollicitation tridimensionnelle statique ou sismique.…",
+      fr: "Ce document décrit le comportement élasto-plastique non linéaire d’une fondation superficielle rectangulaire soumise à une sollicitation tridimensionnelle statique ou sismique.…",
+    },
+  },
+  {
+    id: "r5.03.32",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.32/index.html",
+    blurb: {
+      en: "Ce document décrit le comportement non linéaire des assemblages non linéaires de cornières de pylônes modélisés par des éléments discrets DIS_TR. Cette loi de comportement est…",
+      fr: "Ce document décrit le comportement non linéaire des assemblages non linéaires de cornières de pylônes modélisés par des éléments discrets DIS_TR. Cette loi de comportement est…",
+    },
+  },
+  {
+    id: "r5.03.33",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.33/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle de comportement élasto-visco-plastique à écrouissage isotrope non linéaire, disponible en version locale et à gradient de variables internes…",
+      fr: "Ce document décrit le modèle de comportement élasto-visco-plastique à écrouissage isotrope non linéaire, disponible en version locale et à gradient de variables internes…",
+    },
+  },
+  {
+    id: "r5.03.34",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.34/index.html",
+    blurb: {
+      en: "Pour régulariser certaines formes d’instabilités quasi-statiques, une technique de régularisation accessible dans STAT_NON_LINEvia le mot-clé REGU_VISC s’appuie sur la…",
+      fr: "Pour régulariser certaines formes d’instabilités quasi-statiques, une technique de régularisation accessible dans STAT_NON_LINEvia le mot-clé REGU_VISC s’appuie sur la…",
+    },
+  },
+  {
+    id: "r5.03.35",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.35/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.03.36",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.36/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle de comportement KICHENIN_NL, destiné à décrire la réponse mécanique du polyéthylène. Il combine une branche élastoplastique à écrouissage…",
+      fr: "Ce document décrit le modèle de comportement KICHENIN_NL, destiné à décrire la réponse mécanique du polyéthylène. Il combine une branche élastoplastique à écrouissage…",
+    },
+  },
+  {
+    id: "r5.03.37",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.37/index.html",
+    blurb: {
+      en: "On expose les hypothèses et les méthodes employées dans la commande CALC_MATE_HOMO qui effectue le calcul des propriétés thermiques et thermoélastiques linéaires homogénéisées…",
+      fr: "On expose les hypothèses et les méthodes employées dans la commande CALC_MATE_HOMO qui effectue le calcul des propriétés thermiques et thermoélastiques linéaires homogénéisées…",
+    },
+  },
+  {
+    id: "r5.03.38",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.38/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.40",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.40/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.50",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.50/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.03.52",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.52/index.html",
+    blurb: {
+      en: "Résumé:",
+      fr: "Résumé:",
+    },
+  },
+  {
+    id: "r5.03.54",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.54/index.html",
+    blurb: {
+      en: "Ce document présente une nouvelle approche pour traiter les problèmes de contact en petits glissements avec la eXtended Finite Element Method (X-FEM) [bib1]. On considère la…",
+      fr: "Ce document présente une nouvelle approche pour traiter les problèmes de contact en petits glissements avec la eXtended Finite Element Method (X-FEM) [bib1]. On considère la…",
+    },
+  },
+  {
+    id: "r5.03.55",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.55/index.html",
+    blurb: {
+      en: "Résumé:",
+      fr: "Résumé:",
+    },
+  },
+  {
+    id: "r5.03.80",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.80/index.html",
+    blurb: {
+      en: "Ce document décrit les méthodes de pilotage du chargement disponibles dans *Code_Aster* (par un degré de liberté, par longueur d’arc, par incrément de déformation et par…",
+      fr: "Ce document décrit les méthodes de pilotage du chargement disponibles dans *Code_Aster* (par un degré de liberté, par longueur d’arc, par incrément de déformation et par…",
+    },
+  },
+  {
+    id: "r5.03.81",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.81/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.04.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.04.01/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.04.03",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.04.03/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.05.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.05.02",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.02/index.html",
+    blurb: {
+      en: "Ce document décrit les schémas d'intégration temporelle qui sont utilisés pour résoudre de façon directe des problèmes de dynamique en mécanique linéaire transitoire . Les…",
+      fr: "Ce document décrit les schémas d'intégration temporelle qui sont utilisés pour résoudre de façon directe des problèmes de dynamique en mécanique linéaire transitoire . Les…",
+    },
+  },
+  {
+    id: "r5.05.03",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.03/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.05.04",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.04/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.05.05",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.05/index.html",
+    blurb: {
+      en: "L’opérateur DYNA_NON_LINE DYNA_NON_LINE s’emploie pour l’analyse dynamique non linéaire des structures par une intégration directe en temps. Les non-linéarités peuvent provenir…",
+      fr: "L’opérateur DYNA_NON_LINE DYNA_NON_LINE s’emploie pour l’analyse dynamique non linéaire des structures par une intégration directe en temps. Les non-linéarités peuvent provenir…",
+    },
+  },
+  {
+    id: "r5.05.07",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.07/index.html",
+    blurb: {
+      en: "Ce document présente la formulation des matrices d'amortissement et de raideur gyroscopiques des éléments poutres, volumiques et discrets.",
+      fr: "Ce document présente la formulation des matrices d'amortissement et de raideur gyroscopiques des éléments poutres, volumiques et discrets.",
+    },
+  },
+  {
+    id: "r5.05.08",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.08/index.html",
+    blurb: {
+      en: "Ce document décrit une méthode de prise en compte des fissures dans les rotors modélisés en 1D.",
+      fr: "Ce document décrit une méthode de prise en compte des fissures dans les rotors modélisés en 1D.",
+    },
+  },
+  {
+    id: "r5.05.09",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.09/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.05.10",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.05.10/index.html",
+    blurb: {
+      en: "Overview:",
+      fr: "Overview:",
+    },
+  },
+  {
+    id: "r5.06.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.06.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.06.03",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.06.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r5.06.04",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.06.04/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r5.07.01",
+    part: "R5",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.07.01/index.html",
+    blurb: {
+      en: "L'opérateur MODE_NON_LINE permet de calculer les modes non-linéaires d'un système linéaire conservatif autonome doté de non-linéarités de choc localisées. On décrit ici les…",
+      fr: "L'opérateur MODE_NON_LINE permet de calculer les modes non-linéaires d'un système linéaire conservatif autonome doté de non-linéarités de choc localisées. On décrit ici les…",
+    },
+  },
+  {
+    id: "r6.01.02",
+    part: "R6",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r6/r6.01.02/index.html",
+    blurb: {
+      en: "Dans le cadre des simulations thermo-mécaniques, l’essentiel des coûts calcul provient souvent de la construction et de la résolution des systèmes linéaires . Le choix du bon…",
+      fr: "Dans le cadre des simulations thermo-mécaniques, l’essentiel des coûts calcul provient souvent de la construction et de la résolution des systèmes linéaires . Le choix du bon…",
+    },
+  },
+  {
+    id: "r6.02.01",
+    part: "R6",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r6/r6.02.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r6.02.02",
+    part: "R6",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r6/r6.02.02/index.html",
+    blurb: {
+      en: "La méthode multifrontale MULT_FRONT est une méthode directe particulièrement adaptée à la résolution des systèmes linéaires dont la matrice est creuse. Cette méthode comprend…",
+      fr: "La méthode multifrontale MULT_FRONT est une méthode directe particulièrement adaptée à la résolution des systèmes linéaires dont la matrice est creuse. Cette méthode comprend…",
+    },
+  },
+  {
+    id: "r6.02.03",
+    part: "R6",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r6/r6.02.03/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r6.03.01",
+    part: "R6",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r6/r6.03.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.02",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.02/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.01.03",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.03/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.01.04",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.04/index.html",
+    blurb: {
+      en: "Cette documentation présente l’écriture théorique et l’intégration numérique de la loi de comportement ENDO_ISOT_BETON qui décrit un mécanisme d’endommagement local asymétrique…",
+      fr: "Cette documentation présente l’écriture théorique et l’intégration numérique de la loi de comportement ENDO_ISOT_BETON qui décrit un mécanisme d’endommagement local asymétrique…",
+    },
+  },
+  {
+    id: "r7.01.06",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.06/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.08",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.08/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.09",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.09/index.html",
+    blurb: {
+      en: "Cette documentation présente l’écriture théorique et l’intégration numérique de la loi de comportement ENDO_ORTH_BETON développée par [bib1], qui décrit l’anisotropie induite…",
+      fr: "Cette documentation présente l’écriture théorique et l’intégration numérique de la loi de comportement ENDO_ORTH_BETON développée par [bib1], qui décrit l’anisotropie induite…",
+    },
+  },
+  {
+    id: "r7.01.10",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.10/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.01.11",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.11/index.html",
+    blurb: {
+      en: "Cette note présente une famille de lois de comportement THM pour les milieux saturés et non saturés. On y décrit les relations permettant de calculer les quantités hydrauliques…",
+      fr: "Cette note présente une famille de lois de comportement THM pour les milieux saturés et non saturés. On y décrit les relations permettant de calculer les quantités hydrauliques…",
+    },
+  },
+  {
+    id: "r7.01.12",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.12/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.01.13",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.13/index.html",
+    blurb: {
+      en: "On présente ici la loi CJS qui s’applique à la mécanique des sols. On précise:",
+      fr: "On présente ici la loi CJS qui s’applique à la mécanique des sols. On précise:",
+    },
+  },
+  {
+    id: "r7.01.14",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.14/index.html",
+    blurb: {
+      en: "Le modèle de Cam-Clay est un des modèles élastoplastiques le plus connu et le plus utilisé en mécanique des sols. Il est spécialement adapté aux matériaux argileux. Il y a…",
+      fr: "Le modèle de Cam-Clay est un des modèles élastoplastiques le plus connu et le plus utilisé en mécanique des sols. Il est spécialement adapté aux matériaux argileux. Il y a…",
+    },
+  },
+  {
+    id: "r7.01.15",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.15/index.html",
+    blurb: {
+      en: "Le modèle rhéologique de Laigle permet d’analyser le comportement mécanique des roches. Le développement de ce modèle de comportement a été initié suite à la difficulté…",
+      fr: "Le modèle rhéologique de Laigle permet d’analyser le comportement mécanique des roches. Le développement de ce modèle de comportement a été initié suite à la difficulté…",
+    },
+  },
+  {
+    id: "r7.01.16",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.16/index.html",
+    blurb: {
+      en: "Ce document décrit les principes de plusieurs développements concernant la loi de comportement élastoplastique de Drucker-Prager en version associée (DRUCK_PRAGER)et…",
+      fr: "Ce document décrit les principes de plusieurs développements concernant la loi de comportement élastoplastique de Drucker-Prager en version associée (DRUCK_PRAGER)et…",
+    },
+  },
+  {
+    id: "r7.01.17",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.17/index.html",
+    blurb: {
+      en: "Ce document présente la formulation et l’intégration numérique du modèle de comportement élastoplastique de Barcelone [bib2]__, conçu pour décrire le comportement mécanique des…",
+      fr: "Ce document présente la formulation et l’intégration numérique du modèle de comportement élastoplastique de Barcelone [bib2]__, conçu pour décrire le comportement mécanique des…",
+    },
+  },
+  {
+    id: "r7.01.18",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.18/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.01.19",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.19/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.01.20",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.20/index.html",
+    blurb: {
+      en: "Cette documentation présente le modèle de comportement de l’acier soumis à la corrosion qui permet de décrire le comportement mécanique de renforcement corrodé dans les…",
+      fr: "Cette documentation présente le modèle de comportement de l’acier soumis à la corrosion qui permet de décrire le comportement mécanique de renforcement corrodé dans les…",
+    },
+  },
+  {
+    id: "r7.01.21",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.21/index.html",
+    blurb: {
+      en: "La loi de comportement JOINT_BA décrit le phénomène de dégradation et de rupture de la liaison entre les barres d’acier et le béton, dans les structures en béton armé. Cette…",
+      fr: "La loi de comportement JOINT_BA décrit le phénomène de dégradation et de rupture de la liaison entre les barres d’acier et le béton, dans les structures en béton armé. Cette…",
+    },
+  },
+  {
+    id: "r7.01.22",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.22/index.html",
+    blurb: {
+      en: "Ce document décrit la loi de comportement viscoplastique VISC_DRUC_PRAG basée sur le modèle élastoplastique de Drucker-Prager et prenant en compte la viscosité selon une loi…",
+      fr: "Ce document décrit la loi de comportement viscoplastique VISC_DRUC_PRAG basée sur le modèle élastoplastique de Drucker-Prager et prenant en compte la viscosité selon une loi…",
+    },
+  },
+  {
+    id: "r7.01.23",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.23/index.html",
+    blurb: {
+      en: "Le modèle de comportement dit de «Hujeux», conçu au laboratoire MSSMat de l’ECP , est un des modèles élastoplastiques cycliques de mécanique des sols (géomatériaux granulaires:…",
+      fr: "Le modèle de comportement dit de «Hujeux», conçu au laboratoire MSSMat de l’ECP , est un des modèles élastoplastiques cycliques de mécanique des sols (géomatériaux granulaires:…",
+    },
+  },
+  {
+    id: "r7.01.24",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.24/index.html",
+    blurb: {
+      en: "La loi L&K décrit un comportement élasto-visco-plastique des roches. L’élastoplasticité se caractérise par un écrouissage positif en pré-pic et un comportement adoucissant au…",
+      fr: "La loi L&K décrit un comportement élasto-visco-plastique des roches. L’élastoplasticité se caractérise par un écrouissage positif en pré-pic et un comportement adoucissant au…",
+    },
+  },
+  {
+    id: "r7.01.25",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.25/index.html",
+    blurb: {
+      en: "Ce document décrit des lois surfaciques permettant de modéliser la rupture et le frottement entre les lèvres d'une fissure ou d'un joint. La loi JOINT_MECA_RUPT ne représente…",
+      fr: "Ce document décrit des lois surfaciques permettant de modéliser la rupture et le frottement entre les lèvres d'une fissure ou d'un joint. La loi JOINT_MECA_RUPT ne représente…",
+    },
+  },
+  {
+    id: "r7.01.26",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.26/index.html",
+    blurb: {
+      en: "Ce document présente le modèle de comportement BETON_RAG, utilisé pour estimer le comportement à long terme des structures affectées par la réaction alcali-granulat.",
+      fr: "Ce document présente le modèle de comportement BETON_RAG, utilisé pour estimer le comportement à long terme des structures affectées par la réaction alcali-granulat.",
+    },
+  },
+  {
+    id: "r7.01.27",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.27/index.html",
+    blurb: {
+      en: "Cette documentation présente la loi BETON_REGLE_PR implantée par la société Sixense-NECS dans le cadre de la communauté code_aster libre. Il s'agit d'une loi réglementaire…",
+      fr: "Cette documentation présente la loi BETON_REGLE_PR implantée par la société Sixense-NECS dans le cadre de la communauté code_aster libre. Il s'agit d'une loi réglementaire…",
+    },
+  },
+  {
+    id: "r7.01.28",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.28/index.html",
+    blurb: {
+      en: "Ce document présente la méthode de résolution de la loi de Mohr-Coulomb dans *Code_Aster* .",
+      fr: "Ce document présente la méthode de résolution de la loi de Mohr-Coulomb dans *Code_Aster* .",
+    },
+  },
+  {
+    id: "r7.01.29",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.29/index.html",
+    blurb: {
+      en: "Cette documentation présente l’écriture théorique et l’intégration numérique de la loi de comportement ENDO_HETEROGENE qui prend en compte l'effet de l'hétérogénéité de la…",
+      fr: "Cette documentation présente l’écriture théorique et l’intégration numérique de la loi de comportement ENDO_HETEROGENE qui prend en compte l'effet de l'hétérogénéité de la…",
+    },
+  },
+  {
+    id: "r7.01.31",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.31/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.32",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.32/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.33",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.33/index.html",
+    blurb: {
+      en: "Ce document présente une méthode de couplage d’un modèle élasto-plastique avec un modèle d’endommagement, laquelle est implantée dans le cadre du KIT_DDI. La méthode utilise…",
+      fr: "Ce document présente une méthode de couplage d’un modèle élasto-plastique avec un modèle d’endommagement, laquelle est implantée dans le cadre du KIT_DDI. La méthode utilise…",
+    },
+  },
+  {
+    id: "r7.01.34",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.34/index.html",
+    blurb: {
+      en: "Cette note présente brièvement les schémas volumes finis développés dans Code_Aster. Un bref rappel des équations de comportement concernées est effectué puis les schémas…",
+      fr: "Cette note présente brièvement les schémas volumes finis développés dans Code_Aster. Un bref rappel des équations de comportement concernées est effectué puis les schémas…",
+    },
+  },
+  {
+    id: "r7.01.35",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.35/index.html",
+    blurb: {
+      en: "Ce document présente les modèles de comportement BETON_BURGER et BETON_AGEING, permettant de représenter le fluage du béton (propre et de dessiccation). Ces modèles s'inspirent…",
+      fr: "Ce document présente les modèles de comportement BETON_BURGER et BETON_AGEING, permettant de représenter le fluage du béton (propre et de dessiccation). Ces modèles s'inspirent…",
+    },
+  },
+  {
+    id: "r7.01.37",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.37/index.html",
+    blurb: {
+      en: "Abstract :",
+      fr: "Abstract :",
+    },
+  },
+  {
+    id: "r7.01.38",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.38/index.html",
+    blurb: {
+      en: "Le modèle de comportement d'Iwan [ 1 ], [ 2 ] est un modèle élastoplastique multimécanisme classique pour la description du comportement déviatorique cyclique de matériaux et…",
+      fr: "Le modèle de comportement d'Iwan [ 1 ], [ 2 ] est un modèle élastoplastique multimécanisme classique pour la description du comportement déviatorique cyclique de matériaux et…",
+    },
+  },
+  {
+    id: "r7.01.39",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.39/index.html",
+    blurb: {
+      en: "Ce document présente la méthode de résolution de la loi de Rankine.",
+      fr: "Ce document présente la méthode de résolution de la loi de Rankine.",
+    },
+  },
+  {
+    id: "r7.01.40",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.40/index.html",
+    blurb: {
+      en: "Le modèle de comportement LKR est une évolution thermomécanique du modèle élasto(visco)plastique LETK [1] et [2]. Son développement et son intégration numérique sont le fruit…",
+      fr: "Le modèle de comportement LKR est une évolution thermomécanique du modèle élasto(visco)plastique LETK [1] et [2]. Son développement et son intégration numérique sont le fruit…",
+    },
+  },
+  {
+    id: "r7.01.41",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.41/index.html",
+    blurb: {
+      en: "Le modèle de GonfElas est un modèle initialement proposé par D. Hoxan et F. Colin [ 1 ]pour décrire le comportement gonflant de certains types d'argile. Il s'agit d'un modèle…",
+      fr: "Le modèle de GonfElas est un modèle initialement proposé par D. Hoxan et F. Colin [ 1 ]pour décrire le comportement gonflant de certains types d'argile. Il s'agit d'un modèle…",
+    },
+  },
+  {
+    id: "r7.01.42",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.42/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle de comportement élastique fragile ENDO_LOCA_EXP, disponible en modélisation locale uniquement (par opposition à une formulation non locale type…",
+      fr: "Ce document décrit le modèle de comportement élastique fragile ENDO_LOCA_EXP, disponible en modélisation locale uniquement (par opposition à une formulation non locale type…",
+    },
+  },
+  {
+    id: "r7.01.43",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.43/index.html",
+    blurb: {
+      en: "Ce document présente la méthode de résolution de la loi élastoplastique non associée avec surface de charge lissée de Mohr-Coulomb dédiée particulièrement aux géo-matériaux…",
+      fr: "Ce document présente la méthode de résolution de la loi élastoplastique non associée avec surface de charge lissée de Mohr-Coulomb dédiée particulièrement aux géo-matériaux…",
+    },
+  },
+  {
+    id: "r7.01.44",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.44/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.45",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.45/index.html",
+    blurb: {
+      en: "Le modèle présenté dans ce document est un enrichissement d’un modèle déjà effectif dans Code_Aster: RGI_BETON (cf. R7.01.30). Il permet de considérer des armatures réparties…",
+      fr: "Le modèle présenté dans ce document est un enrichissement d’un modèle déjà effectif dans Code_Aster: RGI_BETON (cf. R7.01.30). Il permet de considérer des armatures réparties…",
+    },
+  },
+  {
+    id: "r7.01.46",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.46/index.html",
+    blurb: {
+      en: "Résumé: Ce document présente les principales équations de la loi de comportement NLH_CSRM (Non-Linear Hardening Critical State Rock Model) ainsi que son algorithme…",
+      fr: "Résumé: Ce document présente les principales équations de la loi de comportement NLH_CSRM (Non-Linear Hardening Critical State Rock Model) ainsi que son algorithme…",
+    },
+  },
+  {
+    id: "r7.01.47",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.47/index.html",
+    blurb: {
+      en: "Ce document décrit le modèle de comportement isotrope quasi-fragile ENDO_LOCA_TC. Il reprend les fondamentaux des modèles ENDO_ISOT_BETON R7.01.04 et ENDO_LOCA_EXP R7.01.42 et…",
+      fr: "Ce document décrit le modèle de comportement isotrope quasi-fragile ENDO_LOCA_TC. Il reprend les fondamentaux des modèles ENDO_ISOT_BETON R7.01.04 et ENDO_LOCA_EXP R7.01.42 et…",
+    },
+  },
+  {
+    id: "r7.01.48",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.48/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.01.49",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.49/index.html",
+    blurb: {
+      en: "Ce document présente un élément fini d’interaction entre matrice et renforcement. Le mot-clé correspondant pour la modélisation est `3D_INTERF_POU`.",
+      fr: "Ce document présente un élément fini d’interaction entre matrice et renforcement. Le mot-clé correspondant pour la modélisation est `3D_INTERF_POU`.",
+    },
+  },
+  {
+    id: "r7.01.50",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.01.50/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.02.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.02.03",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.03/index.html",
+    blurb: {
+      en: "On présente le calcul du taux de restitution de l'énergie par la méthode thêta en 2D ou en 3D pour un problème thermo-élastique non-linéaire. La relation de comportement…",
+      fr: "On présente le calcul du taux de restitution de l'énergie par la méthode thêta en 2D ou en 3D pour un problème thermo-élastique non-linéaire. La relation de comportement…",
+    },
+  },
+  {
+    id: "r7.02.04",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.04/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.02.05",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.05/index.html",
+    blurb: {
+      en: "On présente la méthode de calcul des facteurs d'intensité de contraintes ${K}_{I}$ , ${K}_{\\mathrm{II}}$ et ${K}_{\\mathrm{III}}$ en thermoélasticité linéaire. La formulation…",
+      fr: "On présente la méthode de calcul des facteurs d'intensité de contraintes ${K}_{I}$ , ${K}_{\\mathrm{II}}$ et ${K}_{\\mathrm{III}}$ en thermoélasticité linéaire. La formulation…",
+    },
+  },
+  {
+    id: "r7.02.06",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.06/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.02.08",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.08/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.02.09",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.09/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.02.10",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.10/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.02.11",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.11/index.html",
+    blurb: {
+      en: "Les lois de comportement cohésives :",
+      fr: "Les lois de comportement cohésives :",
+    },
+  },
+  {
+    id: "r7.02.12",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.12/index.html",
+    blurb: {
+      en: "Ce document présente la méthode X-FEM (eXtended Finite Element Method) qui permet principalement de considérer des fissures ne respectant pas le maillage pour traiter les…",
+      fr: "Ce document présente la méthode X-FEM (eXtended Finite Element Method) qui permet principalement de considérer des fissures ne respectant pas le maillage pour traiter les…",
+    },
+  },
+  {
+    id: "r7.02.13",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.13/index.html",
+    blurb: {
+      en: "Ce document présente les algorithmes de propagation de fissures dans le cadre de la méthode X-FEM R7.02.12. La fissure est alors représentée par des level-sets. La propagation…",
+      fr: "Ce document présente les algorithmes de propagation de fissures dans le cadre de la méthode X-FEM R7.02.12. La fissure est alors représentée par des level-sets. La propagation…",
+    },
+  },
+  {
+    id: "r7.02.14",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.14/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.02.15",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.15/index.html",
+    blurb: {
+      en: "On propose un nouvel élément de joint permettant de modéliser en 2D les discontinuités avec couplage-hydromécanique. Cet élément est utilisé pour mailler une fissure ou un…",
+      fr: "On propose un nouvel élément de joint permettant de modéliser en 2D les discontinuités avec couplage-hydromécanique. Cet élément est utilisé pour mailler une fissure ou un…",
+    },
+  },
+  {
+    id: "r7.02.16",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.16/index.html",
+    blurb: {
+      en: "Résumé",
+      fr: "Résumé",
+    },
+  },
+  {
+    id: "r7.02.17",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.17/index.html",
+    blurb: {
+      en: "La commande POST_ENDO_FISS effectue un post-traitement sur un résultat issu de la mécanique des milieux continus. Le but est de trouver la courbe qui représente la fissure à…",
+      fr: "La commande POST_ENDO_FISS effectue un post-traitement sur un résultat issu de la mécanique des milieux continus. Le but est de trouver la courbe qui représente la fissure à…",
+    },
+  },
+  {
+    id: "r7.02.18",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.18/index.html",
+    blurb: {
+      en: "Dans ce document nous présentons la formulation d'un nouveau type d'éléments finis. Il s'agit d'un élément hydromécanique traversé par une discontinuité (une interface ou une…",
+      fr: "Dans ce document nous présentons la formulation d'un nouveau type d'éléments finis. Il s'agit d'un élément hydromécanique traversé par une discontinuité (une interface ou une…",
+    },
+  },
+  {
+    id: "r7.02.19",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.19/index.html",
+    blurb: {
+      en: "Ce document présente les différents éléments cohésifs disponibles avec la méthode des éléments finis étendus (X-FEM). Trois types de lois cohésives sont disponibles. La loi…",
+      fr: "Ce document présente les différents éléments cohésifs disponibles avec la méthode des éléments finis étendus (X-FEM). Trois types de lois cohésives sont disponibles. La loi…",
+    },
+  },
+  {
+    id: "r7.02.20",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.20/index.html",
+    blurb: {
+      en: "Abstract:",
+      fr: "Abstract:",
+    },
+  },
+  {
+    id: "r7.02.21",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.21/index.html",
+    blurb: {
+      en: "La loi de comportement cohésive CZM_TURON permet de modéliser l'endommagement d'une interface fissurante telle que l'ouverture de la fissure génère des forces de cohésion entre…",
+      fr: "La loi de comportement cohésive CZM_TURON permet de modéliser l'endommagement d'une interface fissurante telle que l'ouverture de la fissure génère des forces de cohésion entre…",
+    },
+  },
+  {
+    id: "r7.02.22",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.22/index.html",
+    blurb: {
+      en: "Summary:",
+      fr: "Summary:",
+    },
+  },
+  {
+    id: "r7.02.23",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.23/index.html",
+    blurb: {
+      en: "Ce document décrit la loi de comportement cohésive CZM_FROT_MIX, modélisant l’ouverture et le glissement d’une interface selon la loi de frottement de Coulomb. CZM_FROT_MIX…",
+      fr: "Ce document décrit la loi de comportement cohésive CZM_FROT_MIX, modélisant l’ouverture et le glissement d’une interface selon la loi de frottement de Coulomb. CZM_FROT_MIX…",
+    },
+  },
+  {
+    id: "r7.04.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.04.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.04.02",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.04.02/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.04.03",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.04.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.04.04",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.04.04/index.html",
+    blurb: {
+      en: "Dans cette note nous proposons une formulation des critères de MATAKE, de DANG VAN et de FATEMI-SOCIE et des critères en formule adaptée au cadre du cumul de dommage sous…",
+      fr: "Dans cette note nous proposons une formulation des critères de MATAKE, de DANG VAN et de FATEMI-SOCIE et des critères en formule adaptée au cadre du cumul de dommage sous…",
+    },
+  },
+  {
+    id: "r7.04.05",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.04.05/index.html",
+    blurb: {
+      en: "On présente l'algorithme de calcul des densités de ferraillage des éléments en béton armé, tel qu'implanté au sein de la commande CALC_FERRAILLAGE.",
+      fr: "On présente l'algorithme de calcul des densités de ferraillage des éléments en béton armé, tel qu'implanté au sein de la commande CALC_FERRAILLAGE.",
+    },
+  },
+  {
+    id: "r7.04.10",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.04.10/index.html",
+    blurb: {
+      en: "Cette note présente trois lois d'usure qui permettent d'évaluer le volume usé à partir des quantités issues d'un calcul dynamique effectué avec l'opérateur DYNA_VIBRA U4.54.03…",
+      fr: "Cette note présente trois lois d'usure qui permettent d'évaluer le volume usé à partir des quantités issues d'un calcul dynamique effectué avec l'opérateur DYNA_VIBRA U4.54.03…",
+    },
+  },
+  {
+    id: "r7.05.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.05.01/index.html",
+    blurb: {
+      en: "Ce document présente les différents critères de stabilité mécanique disponibles dans *Code_Aster* . On peut les classer suivant deux catégories:",
+      fr: "Ce document présente les différents critères de stabilité mécanique disponibles dans *Code_Aster* . On peut les classer suivant deux catégories:",
+    },
+  },
+  {
+    id: "r7.05.02",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.05.02/index.html",
+    blurb: {
+      en: "La commande CALC_STAB_PENTE permet d’analyser la stabilité statique des pentes en remblai modélisées en 2D dans les ouvrages hydrauliques tels que les barrages, les talus et…",
+      fr: "La commande CALC_STAB_PENTE permet d’analyser la stabilité statique des pentes en remblai modélisées en 2D dans les ouvrages hydrauliques tels que les barrages, les talus et…",
+    },
+  },
+  {
+    id: "r7.07.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.07.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.10.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.10.01/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.10.02",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.10.02/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.10.03",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.10.03/index.html",
+    blurb: {
+      en: "Résumé :",
+      fr: "Résumé :",
+    },
+  },
+  {
+    id: "r7.10.04",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.10.04/index.html",
+    blurb: {
+      en: "L’opérateur POST_ROCHE est un post-traitement de calculs purement linéaires élastiques, qui utilise la méthode Roche pour évaluer la réponse d'une ligne de tuyauteries sous…",
+      fr: "L’opérateur POST_ROCHE est un post-traitement de calculs purement linéaires élastiques, qui utilise la méthode Roche pour évaluer la réponse d'une ligne de tuyauteries sous…",
+    },
+  },
+  {
+    id: "r7.20.01",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.20.01/index.html",
+    blurb: {
+      en: "La commande PROJ_CHAMP permet de \"projeter\" des champs (connus sur un maillage $\\mathit{ma1}$ ) sur un autre maillage $\\mathit{ma2}$ .",
+      fr: "La commande PROJ_CHAMP permet de \"projeter\" des champs (connus sur un maillage $\\mathit{ma1}$ ) sur un autre maillage $\\mathit{ma2}$ .",
+    },
+  },
+  {
+    id: "r7.20.02",
+    part: "R7",
+    sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.20.02/index.html",
+    blurb: {
+      en: "Une démarche d’extrapolation de résultats de mesures expérimentales en dynamique (déplacements, vitesses, accélérations, déformations, contraintes) sur un modèle numérique est…",
+      fr: "Une démarche d’extrapolation de résultats de mesures expérimentales en dynamique (déplacements, vitesses, accélérations, déformations, contraintes) sur un modèle numérique est…",
     },
   },
 ];

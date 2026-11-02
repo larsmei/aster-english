@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="3.2102777mm"
+   height="2.5752778mm"
+   id="svg144"
+   sodipodi:docname="10000AAC000012B500000EFC635998EC46D1535F.wmf">
+  <metadata
+     id="metadata148">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview146" />
+  <defs
+     id="defs12">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipWmfPath1">
+      <path
+         d="M 6,0.73333333 L 7.1333333,0.73333333 L 7.1333333,0.86666667 L 6,0.86666667 z"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipWmfPath2">
+      <path
+         d="M 9.3333333,0.73333333 L 10.466667,0.73333333 L 10.466667,0.86666667 L 9.3333333,0.86666667 z"
+         id="path5" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipWmfPath3">
+      <path
+         d="M 1.2,4.8666667 L 2.2666667,4.8666667 L 2.2666667,5 L 1.2,5 z"
+         id="path8" />
+    </clipPath>
+    <pattern
+       id="WMFhbasepattern"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+  </defs>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     d="  M 2.9334691,1.1427143 A 4.7666667,3.1666667 0  0,0 7.6754527,4.3332916   "
+     id="path14" />
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="2.9666667"
+     cy="1.1666667"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse16" />
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="7.7666667"
+     cy="4.3"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse18" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;line-height:72.039464%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:end;text-anchor:end;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,3.600000,1.200000)"
+     x="3.472917"
+     y="0.000000"
+     id="text42"><tspan
+       sodipodi:role="line"
+       x="3.472917"
+       y="0.000000"
+       id="tspan32"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan20">x</tspan><tspan
+         dx="-0.009375"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan22"> +</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan24">u</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan26">+</tspan><tspan
+         dx="0.408445"
+         dy="-0.533333"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan28">∂</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan30">x</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="3.579167"
+       y="0.600000"
+       id="tspan40"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan34">∂</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan36">s</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan38">o</tspan></tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     clip-path="url(#clipWmfPath1)"
+     d="  M 4.8666667,0.8   L 8.2666667,0.8  "
+     id="path44" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:136.074544%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:end;text-anchor:end;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,7.466667,1.200000)"
+     x="3.051750"
+     y="0.000000"
+     id="text66"><tspan
+       sodipodi:role="line"
+       x="3.051750"
+       y="0.000000"
+       id="tspan56"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan46">ds</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan48">o</tspan><tspan
+         dx="0.220833"
+         dy="-0.200000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan50">+</tspan><tspan
+         dx="0.408445"
+         dy="-0.533333"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan52">∂</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan54">u</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="3.045833"
+       y="0.600000"
+       id="tspan64"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan58">∂</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan60">s</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan62">o</tspan></tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     clip-path="url(#clipWmfPath2)"
+     d="  M 8.2,0.8   L 11.6,0.8  "
+     id="path68" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,10.866667,1.200000)"
+     x="0.000000"
+     y="0.000000"
+     id="text76"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan74"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan70">ds</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan72">o</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,10.866667,1.200000)"
+     x="-2.600000"
+     y="3.333333"
+     id="text86"><tspan
+       sodipodi:role="line"
+       x="-2.600000"
+       y="3.333333"
+       id="tspan84"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan78">x</tspan><tspan
+         dx="-0.009375"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan80"> +</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan82">u</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,4.933333,3.400000)"
+     x="0.000000"
+     y="0.000000"
+     id="text92"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan90"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan88">ds</tspan></tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     d="  M 2.9334691,6.0093811 A 4.7666667,3.1666667 0  0,0 7.6754527,9.1999583   "
+     id="path94" />
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="2.9666667"
+     cy="6.0333333"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse96" />
+  <ellipse
+     style="fill:#000000;fill-rule:evenodd;fill-opacity:1;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     cx="7.7666667"
+     cy="9.1666667"
+     rx="0.16666667"
+     ry="0.16666667"
+     id="ellipse98" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;line-height:72.039464%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:end;text-anchor:end;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,0.000000,5.333333)"
+     x="2.272917"
+     y="0.000000"
+     id="text118"><tspan
+       sodipodi:role="line"
+       x="2.272917"
+       y="0.000000"
+       id="tspan108"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan100">x</tspan><tspan
+         dx="-0.009375"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan102"> +</tspan><tspan
+         dx="0.341779"
+         dy="-0.533333"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan104">∂</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan106">x</tspan></tspan><tspan
+       sodipodi:role="line"
+       x="2.312500"
+       y="0.600000"
+       id="tspan116"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Condensed;font-family:Times New Roman;"
+         id="tspan110">∂</tspan><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan112">s</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan114">o</tspan></tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.06666667px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+     clip-path="url(#clipWmfPath3)"
+     d="  M 0.13333333,4.9333333   L 3.3333333,4.9333333  "
+     id="path120" />
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,2.666667,5.333333)"
+     x="0.000000"
+     y="0.000000"
+     id="text128"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan126"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan122">ds</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan124">o</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,4.666667,8.066667)"
+     x="0.000000"
+     y="0.000000"
+     id="text136"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan134"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan130">ds</tspan><tspan
+         dx="0.000000"
+         dy="0.200000"
+         style="fill:#000000;font-size:0.625000px;font-style:italic;font-variant:normal;font-weight:400;font-stretch:Normal;font-family:Times;"
+         id="tspan132">o</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;line-height:125.000000%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Times;text-align:start;text-anchor:start;"
+     transform="matrix(1.000000,-0.000000,0.000000,1.000000,8.400000,9.400000)"
+     x="0.000000"
+     y="0.000000"
+     id="text142"><tspan
+       sodipodi:role="line"
+       x="0.000000"
+       y="0.000000"
+       id="tspan140"><tspan
+         dx="0.000000"
+         dy="0.000000"
+         style="fill:#000000;font-size:0.812500px;font-style:normal;font-variant:normal;font-weight:700;font-stretch:Normal;font-family:Times;"
+         id="tspan138">x</tspan></tspan></text>
+</svg>

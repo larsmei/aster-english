@@ -272,7 +272,12 @@ function DocNav({ lang, pathname }: { lang: Lang; pathname: string }) {
       >
         {lang === "fr" ? "Bibliothèque" : "Library"}
       </Link>
-      {PARTS.map((item) => {
+      {(["U", "R"] as const).map((book) => (
+        <div key={book} className="mb-3">
+          <p className="px-3 pt-2 pb-1 font-sans text-[11px] font-semibold tracking-widest text-copper uppercase">
+            {book === "U" ? (lang === "fr" ? "Utilisation" : "User’s manual") : lang === "fr" ? "Référence" : "Reference"}
+          </p>
+          {PARTS.filter((item) => item.book === book).map((item) => {
         const open = part === item.id;
         const { docs, groups } = families(item.id);
         const flat = docs.length <= 8;
@@ -321,7 +326,9 @@ function DocNav({ lang, pathname }: { lang: Lang; pathname: string }) {
             ) : null}
           </div>
         );
-      })}
+          })}
+        </div>
+      ))}
     </nav>
   );
 }

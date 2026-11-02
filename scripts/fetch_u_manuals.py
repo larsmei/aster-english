@@ -453,9 +453,13 @@ def build_doc(docid: str) -> tuple[str, int, int]:
     return docid, len(text.split()), len(writer.images)
 
 
-def doc_ids() -> list[str]:
-    html = fetch(f"{BASE}/other_pages/list/index.html")
-    ids = re.findall(r"/man_u/u[2-7]/(u[2-7]\.\d+\.\d+)/index\.html", html)
+def doc_ids(manual: str = "u") -> list[str]:
+    if manual == "r":
+        html = fetch(f"{BASE}/other_pages/list/index.html")
+        ids = re.findall(r"/man_r/r\d+/(r\d+\.\d+\.\d+)/index\.html", html)
+    else:
+        html = fetch(f"{BASE}/other_pages/list/index.html")
+        ids = re.findall(r"/man_u/u[2-7]/(u[2-7]\.\d+\.\d+)/index\.html", html)
     seen = []
     for docid in ids:
         if docid not in seen:
@@ -464,7 +468,15 @@ def doc_ids() -> list[str]:
 
 
 def main():
-    ids = sys.argv[1:] or doc_ids()
+    global BASE
+    args = sys.argv[1:]
+    manual = "u"
+    if args[:1] == ["--manual"]:
+        manual = args[1]
+        args = args[2:]
+    if manual == "r":
+        BASE = "https://codeaster.gitlab.io/doc/docaster/manuals/man_r"
+    ids = args or doc_ids(manual)
     print(f"documents {len(ids)}", flush=True)
     ok = 0
     failed = []
