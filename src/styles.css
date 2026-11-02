@@ -1,0 +1,241 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@theme {
+  --color-bg: #f4f0e6;
+  --color-paper: #fbf8f2;
+  --color-ink: #1c1915;
+  --color-muted: #6d655c;
+  --color-line: #e4d9c8;
+  --color-accent: #0e4c5c;
+  --color-accent-soft: #e4eef0;
+  --color-copper: #9a4a12;
+  --color-code: #221e1a;
+  --color-code-fg: #f4efe6;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-md: 0.5rem;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.manual {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+.manual h1 {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.manual h2,
+.manual h3,
+.manual h4 {
+  font-family: var(--font-sans);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  scroll-margin-top: 6rem;
+  color: var(--color-ink);
+}
+
+.manual h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.manual h3 {
+  font-size: 1.2rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.manual h4 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.4rem;
+  color: var(--color-accent);
+}
+
+.manual p {
+  margin: 0.8rem 0;
+}
+
+.manual a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.manual strong {
+  font-weight: 650;
+}
+
+.manual ul,
+.manual ol {
+  margin: 0.6rem 0 0.8rem;
+  padding-left: 1.25rem;
+}
+
+.manual ul {
+  list-style: disc;
+}
+
+.manual ol {
+  list-style: decimal;
+}
+
+.manual li {
+  margin: 0.25rem 0;
+}
+
+.manual li > ul,
+.manual li > ol {
+  margin: 0.2rem 0;
+}
+
+.manual blockquote {
+  margin: 1rem 0;
+  border-left: 3px solid var(--color-copper);
+  background: var(--color-paper);
+  padding: 0.75rem 1rem;
+  color: var(--color-ink);
+}
+
+.manual blockquote p {
+  margin: 0.3rem 0;
+}
+
+.manual table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.manual th,
+.manual td {
+  border: 1px solid var(--color-line);
+  padding: 0.45rem 0.6rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+.manual th {
+  background: var(--color-accent-soft);
+  font-weight: 650;
+}
+
+.manual tr:nth-child(even) td {
+  background: var(--color-paper);
+}
+
+.manual pre {
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-code);
+  color: var(--color-code-fg);
+  padding: 0.9rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.manual code {
+  font-family: var(--font-mono);
+  font-size: 0.84em;
+}
+
+.manual p code,
+.manual li code,
+.manual td code {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+.manual pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+.manual img.manual-figure {
+  display: block;
+  max-width: min(100%, 46rem);
+  height: auto;
+  margin: 1.15rem auto;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.manual img.manual-figure[src$=".svg"] {
+  width: min(100%, 36rem);
+  padding: 0.75rem;
+}
+
+.manual img.manual-mark {
+  display: inline-block;
+  width: auto;
+  height: 1.05em;
+  max-height: 18px;
+  margin: 0 0.28em 0 0;
+  vertical-align: -0.15em;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+.manual .katex {
+  font-size: 1.02em;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
