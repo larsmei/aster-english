@@ -68,7 +68,13 @@ def _ref_role(role, rawtext, text, lineno, inliner, options=None, content=None):
 
 
 def _math_role(role, rawtext, text, lineno, inliner, options=None, content=None):
-    node = nodes.math(rawtext, text)
+    # Interpreted text turns each backslash into a NUL, and astext() then drops it.
+    # The raw role text still has the original LaTeX.
+    body = text.replace("\x00", "")
+    match = re.match(r"^:math:`(.*)`$", rawtext, re.DOTALL)
+    if match:
+        body = match.group(1)
+    node = nodes.math(rawtext, body)
     return [node], []
 
 
@@ -165,8 +171,8 @@ def inline(node) -> str:
             parts.append(f"_{{{inline(child)}}}")
         elif isinstance(child, nodes.superscript):
             parts.append(f"^{{{inline(child)}}}")
-        elif isinstance(child, nodes.problematic) or isinstance(child, nodes.system_message):
-            parts.append(child.astext())
+        elif isinstance(child, (nodes.problematic, nodes.system_message)):
+            continue
         elif isinstance(child, nodes.image):
             parts.append(image_md(child))
         else:
@@ -340,7 +346,7 @@ class Writer:
                 pass
             for entry in row:
                 if isinstance(entry, nodes.entry):
-                    cells.append(re.sub(r"\s+", " ", entry.astext()).strip().replace("|", "\\|"))
+                    cells.append(re.sub(r"\s+", " ", inline(entry)).strip().replace("|", "\\|"))
             if cells:
                 rows.append(cells)
         if not rows:

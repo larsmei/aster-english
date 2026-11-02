@@ -236,6 +236,12 @@ summary::-webkit-details-marker {
   font-size: 1.02em;
 }
 
+.manual .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
 .table-scroll {
   overflow-x: auto;
 }
