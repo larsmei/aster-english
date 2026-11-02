@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { isStaticSite } from "@/lib/static-site";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Aster English";
@@ -29,7 +30,15 @@ export const Route = createRootRoute({
       },
     ],
   }),
-  component: () => (
+  component: () =>
+    isStaticSite ? (
+      <>
+        <PreviewHostBridge />
+        <AuthProvider>
+          <Outlet />
+        </AuthProvider>
+      </>
+    ) : (
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
@@ -42,5 +51,5 @@ export const Route = createRootRoute({
         <Scripts />
       </body>
     </html>
-  ),
+    ),
 });

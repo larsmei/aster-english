@@ -5,6 +5,14 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { slug } from "@/content/docs";
+import { isStaticSite } from "@/lib/static-site";
+
+function assetSrc(src: string | undefined): string | undefined {
+  if (!src || !isStaticSite || !src.startsWith("/") || src.startsWith("//")) return src;
+  const base = import.meta.env.BASE_URL || "./";
+  const prefix = base.endsWith("/") ? base : `${base}/`;
+  return prefix + src.slice(1);
+}
 
 function nodeText(node: ReactNode): string {
   if (node == null || typeof node === "boolean") return "";
@@ -43,10 +51,11 @@ export function MarkdownView({ markdown }: { markdown: string }) {
             </div>
           ),
           img: ({ src, alt }) => {
-            const mark = alt === "icon" || /\/Shape\d+\.gif(?:$|\?)/.test(src ?? "");
+            const resolved = assetSrc(src);
+            const mark = alt === "icon" || /\/Shape\d+\.gif(?:$|\?)/.test(resolved ?? "");
             return (
               <img
-                src={src}
+                src={resolved}
                 alt={alt ?? ""}
                 className={mark ? "manual-mark" : "manual-figure"}
               />
