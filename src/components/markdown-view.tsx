@@ -5,6 +5,7 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { slug } from "@/content/docs";
+import { ASTER_MACROS } from "@/lib/aster-macros";
 import { isStaticSite } from "@/lib/static-site";
 
 function assetSrc(src: string | undefined): string | undefined {
@@ -40,7 +41,7 @@ export function MarkdownView({ markdown }: { markdown: string }) {
     <div className="manual">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeKatex]}
+        rehypePlugins={[[rehypeKatex, { macros: ASTER_MACROS, throwOnError: false, strict: "ignore" }]]}
         components={{
           h2: Heading(2),
           h3: Heading(3),
