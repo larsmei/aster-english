@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="61.571827mm"
+   height="43.757858mm"
+   viewBox="0 0 61.571827 43.757858"
+   version="1.1"
+   id="svg5"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient7362">
+      <stop
+         style="stop-color:#f1f1f1;stop-opacity:1;"
+         offset="0"
+         id="stop7360" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2504">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2500" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop2502" />
+    </linearGradient>
+    <rect
+       x="386.10416"
+       y="328.91702"
+       width="81.513336"
+       height="33.562809"
+       id="rect3295" />
+    <marker
+       style="overflow:visible"
+       id="Arrow2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="arrow2L" />
+    </marker>
+    <linearGradient
+       xlink:href="#linearGradient7362"
+       id="linearGradient7364"
+       x1="58.635326"
+       y1="99.743797"
+       x2="98.635239"
+       y2="99.743797"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-58.635328,-79.743841)">
+    <rect
+       style="fill:url(#linearGradient7364);fill-opacity:1;stroke:#000000;stroke-width:0.133;stroke-dasharray:none"
+       id="rect1827"
+       width="39.866909"
+       height="39.866913"
+       x="58.701828"
+       y="79.810341" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+       x="74.811172"
+       y="123.3017"
+       id="text2651"><tspan
+         id="tspan2649"
+         style="font-size:2.82222px;fill:#000000;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+         x="74.811172"
+         y="123.3017">1 mm</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.348014;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2)"
+       d="M 98.568739,99.743796 H 104.6331"
+       id="path3016" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+       x="109.95807"
+       y="100.72346"
+       id="text3273"><tspan
+         id="tspan3271"
+         style="font-size:3.88056px;stroke-width:0.4"
+         x="109.95807"
+         y="100.72346">T<tspan
+   style="font-size:3.52778px;baseline-shift:sub"
+   id="tspan3275">ext</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.4;stroke-dasharray:none;stroke-opacity:1"
+       x="100.60275"
+       y="98.03228"
+       id="text3279"><tspan
+         id="tspan3277"
+         style="stroke-width:0.4"
+         x="100.60275"
+         y="98.03228">n</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,0,-1.0583333)"
+       id="text3293"
+       style="font-size:10.6667px;font-family:sans-serif;-inkscape-font-specification:sans-serif;white-space:pre;shape-inside:url(#rect3295);fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:1.51181;stroke-dasharray:none;stroke-opacity:1"><tspan
+         x="386.10352"
+         y="338.62333"
+         id="tspan7796">Echange par </tspan><tspan
+         x="386.10352"
+         y="351.95671"
+         id="tspan7798">rayonnement</tspan></text>
+  </g>
+</svg>

@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { CATALOG, PARTS } from "@/content/catalog";
+import { BOOKS, CATALOG, PARTS } from "@/content/catalog";
 import { docTitle, familyOf } from "@/content/docs";
+import { familyLabel } from "@/content/families";
 import { ManualShell } from "@/components/manual-shell";
 import { useManual } from "@/lib/manual-store";
 
@@ -17,15 +18,15 @@ function Home() {
     <ManualShell>
       <div className="px-5 py-10 sm:px-8">
         <p className="font-sans text-xs font-semibold tracking-widest text-copper uppercase">
-          {fr ? "Manuels d’utilisation et de référence" : "User’s and Reference manuals"}
+          {fr ? "Utilisation, référence et validation" : "User’s manual, Reference and Validation"}
         </p>
         <h1 className="mt-3 max-w-2xl font-serif text-4xl leading-tight text-ink sm:text-5xl">
-          {fr ? "Utilisation et référence, en français et en anglais." : "The User’s manual and the Reference manual."}
+          {fr ? "Trois manuels, en français et en anglais." : "Three manuals, in French and in English."}
         </h1>
         <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted">
           {fr
-            ? "Les fascicules U0 à U4 et U7 du manuel d’utilisation, et les documents de référence R0, R3 à R7, en français et en anglais. U5, U6, R1 et R2 ne font pas partie de cette édition."
-            : "Booklets U0 to U4 and U7 of the User’s manual, and Reference documents R0 and R3 to R7, in French and in English. U5, U6, R1 and R2 are not part of this edition."}
+            ? "Les fascicules U0 à U4 et U7, les documents de référence R0 et R3 à R7, et le manuel de validation V0 à V9. U5, U6, R1 et R2 ne font pas partie de cette édition."
+            : "Booklets U0 to U4 and U7, Reference documents R0 and R3 to R7, and the Validation manual V0 to V9. U5, U6, R1 and R2 are not part of this edition."}
         </p>
         <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-muted">
           {fr
@@ -50,19 +51,13 @@ function Home() {
         </div>
 
         <div className="mt-10 space-y-8">
-          {(["U", "R"] as const).map((book) => (
-            <div key={book}>
+          {BOOKS.map((book) => (
+            <div key={book.id}>
               <h2 className="font-sans text-xs font-semibold tracking-widest text-muted uppercase">
-                {book === "U"
-                  ? fr
-                    ? "Manuel d’utilisation"
-                    : "User’s manual"
-                  : fr
-                    ? "Manuel de référence"
-                    : "Reference manual"}
+                {fr ? book.homeFr : book.homeEn}
               </h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {PARTS.filter((item) => item.book === book).map((item) => {
+                {PARTS.filter((item) => item.book === book.id).map((item) => {
                   const count = CATALOG.filter((doc) => doc.part === item.id).length;
                   const active = part === item.id;
                   return (
@@ -96,8 +91,8 @@ function Home() {
         <footer className="mt-12 border-t border-line pt-6 font-sans text-sm leading-relaxed text-muted">
           <p>
             {fr
-              ? "Source officielle en français : documentation Code_Aster, manuels U et R, édition DocAster. Cette lecture n’est pas une publication EDF."
-              : "Official French source: the Code_Aster User’s and Reference manuals, DocAster edition. This reading edition is not an EDF publication."}
+              ? "Source officielle en français : documentation Code_Aster, manuels U, R et V, édition DocAster. Cette lecture n’est pas une publication EDF."
+              : "Official French source: the Code_Aster User’s, Reference and Validation manuals, DocAster edition. This reading edition is not an EDF publication."}
           </p>
           <p className="mt-2">
             <a className="text-accent underline" href="https://codeaster.gitlab.io/doc/docaster/manuals/man_u/other_pages/list/index.html">
@@ -105,6 +100,9 @@ function Home() {
             </a>
             <a className="ml-4 text-accent underline" href="https://code-aster.org/doc/v17/manuals/man_r/other_pages/list/index.html">
               {fr ? "Liste des documents de référence" : "List of Reference documents"}
+            </a>
+            <a className="ml-4 text-accent underline" href="https://codeaster.gitlab.io/doc/docaster/manuals/man_v/other_pages/list/index.html">
+              {fr ? "Liste des documents de validation" : "List of Validation documents"}
             </a>
           </p>
         </footer>
@@ -146,7 +144,9 @@ function PartList({
             <details key={family} className="group">
               <summary className="flex cursor-pointer list-none items-baseline gap-3 py-3">
                 <span className="font-mono text-sm text-copper">{family}</span>
-                <span className="min-w-0 flex-1 truncate font-serif text-lg text-ink">{docTitle(items[0].id, lang)}</span>
+                <span className="min-w-0 flex-1 truncate font-serif text-lg text-ink">
+                  {familyLabel(family, lang) || docTitle(items[0].id, lang)}
+                </span>
                 <span className="font-sans text-sm text-muted">{items.length}</span>
               </summary>
               <ul className="mb-3 divide-y divide-line border-t border-line">

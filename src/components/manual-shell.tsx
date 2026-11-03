@@ -1,8 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { CATALOG, PARTS, type Lang } from "@/content/catalog";
+import { BOOKS, CATALOG, PARTS, type Lang } from "@/content/catalog";
 import { docTitle, familyOf, searchDocs, type TocItem } from "@/content/docs";
+import { familyLabel } from "@/content/families";
 import { useManual } from "@/lib/manual-store";
 
 function useLangHydration() {
@@ -272,12 +273,12 @@ function DocNav({ lang, pathname }: { lang: Lang; pathname: string }) {
       >
         {lang === "fr" ? "Bibliothèque" : "Library"}
       </Link>
-      {(["U", "R"] as const).map((book) => (
-        <div key={book} className="mb-3">
+      {BOOKS.map((book) => (
+        <div key={book.id} className="mb-3">
           <p className="px-3 pt-2 pb-1 font-sans text-[11px] font-semibold tracking-widest text-copper uppercase">
-            {book === "U" ? (lang === "fr" ? "Utilisation" : "User’s manual") : lang === "fr" ? "Référence" : "Reference"}
+            {lang === "fr" ? book.fr : book.en}
           </p>
-          {PARTS.filter((item) => item.book === book).map((item) => {
+          {PARTS.filter((item) => item.book === book.id).map((item) => {
         const open = part === item.id;
         const { docs, groups } = families(item.id);
         const flat = docs.length <= 8;
@@ -304,7 +305,7 @@ function DocNav({ lang, pathname }: { lang: Lang; pathname: string }) {
                 <ul className="mb-2">
                   {groups.map((group) => {
                     const groupOpen = family === group.id;
-                    const hint = docTitle(group.docs[0].id, lang);
+                    const hint = familyLabel(group.id, lang) || docTitle(group.docs[0].id, lang);
                     return (
                       <li key={group.id}>
                         <button

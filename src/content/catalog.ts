@@ -1,4 +1,7 @@
+import { V_CATALOG } from "./catalog-v";
 export type Lang = "en" | "fr";
+
+export type BookId = "U" | "R" | "V";
 
 export type PartId =
   | "U0"
@@ -12,7 +15,17 @@ export type PartId =
   | "R4"
   | "R5"
   | "R6"
-  | "R7";
+  | "R7"
+  | "V0"
+  | "V1"
+  | "V2"
+  | "V3"
+  | "V4"
+  | "V5"
+  | "V6"
+  | "V7"
+  | "V8"
+  | "V9";
 
 export type DocMeta = {
   id: string;
@@ -21,7 +34,13 @@ export type DocMeta = {
   blurb: Record<Lang, string>;
 };
 
-export const PARTS: { id: PartId; book: "U" | "R"; en: string; fr: string }[] = [
+export const BOOKS: { id: BookId; fr: string; en: string; homeFr: string; homeEn: string }[] = [
+  { id: "U", fr: "Utilisation", en: "User’s manual", homeFr: "Manuel d’utilisation", homeEn: "User’s manual" },
+  { id: "R", fr: "Référence", en: "Reference", homeFr: "Manuel de référence", homeEn: "Reference manual" },
+  { id: "V", fr: "Validation", en: "Validation", homeFr: "Manuel de validation", homeEn: "Validation manual" },
+];
+
+export const PARTS: { id: PartId; book: BookId; en: string; fr: string }[] = [
   { id: "U0", book: "U", en: "How to read the manual", fr: "Guide de lecture" },
   { id: "U1", book: "U", en: "Getting started", fr: "Prise en main" },
   { id: "U2", book: "U", en: "Methodology", fr: "Méthodologie" },
@@ -34,6 +53,16 @@ export const PARTS: { id: PartId; book: "U" | "R"; en: string; fr: string }[] = 
   { id: "R5", book: "R", en: "Analysis methods", fr: "Méthodes de résolution" },
   { id: "R6", book: "R", en: "Linear solvers", fr: "Solveurs linéaires" },
   { id: "R7", book: "R", en: "Constitutive laws", fr: "Lois de comportement" },
+  { id: "V0", book: "V", en: "General", fr: "Généralités" },
+  { id: "V1", book: "V", en: "Computer tests", fr: "Tests informatiques" },
+  { id: "V2", book: "V", en: "Linear dynamics", fr: "Dynamique linéaire" },
+  { id: "V3", book: "V", en: "Linear statics", fr: "Statique linéaire" },
+  { id: "V4", book: "V", en: "Thermal analysis", fr: "Thermique" },
+  { id: "V5", book: "V", en: "Nonlinear dynamics", fr: "Dynamique non linéaire" },
+  { id: "V6", book: "V", en: "Nonlinear statics", fr: "Statique non linéaire" },
+  { id: "V7", book: "V", en: "Thermo-hydro-mechanics", fr: "Thermo-hydro-mécanique" },
+  { id: "V8", book: "V", en: "Fluid and acoustics", fr: "Fluide et acoustique" },
+  { id: "V9", book: "V", en: "Fatigue and other tests", fr: "Fatigue et divers" },
 ];
 
 export const CATALOG: DocMeta[] = [
@@ -5635,6 +5664,9 @@ export const CATALOG: DocMeta[] = [
       fr: "Une démarche d’extrapolation de résultats de mesures expérimentales en dynamique (déplacements, vitesses, accélérations, déformations, contraintes) sur un modèle numérique est…",
     },
   },
+  // @v-catalog
+  ...V_CATALOG,
+  // @v-catalog-end
 ];
 
 export function docById(id: string): DocMeta | undefined {

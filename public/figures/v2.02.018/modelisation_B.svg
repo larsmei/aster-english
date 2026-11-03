@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="76.687668mm"
+   height="53.060246mm"
+   viewBox="0 0 76.687669 53.060245"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="modelisation_B.svg"
+   inkscape:export-filename="probleme_reference.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.8912938"
+     inkscape:cx="207.52989"
+     inkscape:cy="37.540439"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8516"
+     showguides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10638"
+       units="mm"
+       spacingx="1"
+       dotted="true"
+       spacingy="1" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="arrow2L" />
+    </marker>
+    <linearGradient
+       id="linearGradient14074"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop14072" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4355"
+       inkscape:swatch="gradient">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4351" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4353" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="marker19221-0"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow2"
+       markerWidth="7.6999998"
+       markerHeight="5.5999999"
+       viewBox="0 0 7.7 5.6"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path19219-9" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-57.029355,-3.130554)">
+    <g
+       id="g8516"
+       transform="translate(8.1421796,4.9525658)">
+      <g
+         id="g485">
+        <rect
+           style="fill:#000000;fill-opacity:0;fill-rule:nonzero;stroke:#000000;stroke-width:0.251037;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6007"
+           width="69.748962"
+           height="3.7489634"
+           x="50.251038"
+           y="43" />
+        <text
+           xml:space="preserve"
+           style="font-size:3.175px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           x="123.16021"
+           y="43.751801"
+           id="text17625-5-3-3"><tspan
+             sodipodi:role="line"
+             id="tspan17623-9-6-5"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke-width:0.1"
+             x="123.16021"
+             y="43.751801">x</tspan></text>
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:0.199834;stroke-dasharray:none;marker-end:url(#marker19221-0)"
+           d="M 50.125519,45 H 124.31589"
+           id="path973" />
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:0.2;stroke-dasharray:none;marker-end:url(#marker19221-0)"
+           d="M 50.227178,43.377143 V 39"
+           id="path1138" />
+        <text
+           xml:space="preserve"
+           style="font-size:3.175px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           x="49.253876"
+           y="36.850899"
+           id="text17625-5-3-6"><tspan
+             sodipodi:role="line"
+             id="tspan17623-9-6-2"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke-width:0.1"
+             x="49.253876"
+             y="36.850899">z</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:3.175px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
+           x="48.987175"
+           y="51.138237"
+           id="text2907"><tspan
+             sodipodi:role="line"
+             style="stroke-width:0.2"
+             x="48.987175"
+             y="51.138237"
+             id="tspan2909">A</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:3.175px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0.2;stroke-dasharray:none"
+           x="118.89986"
+           y="51.133476"
+           id="text2907-9"><tspan
+             sodipodi:role="line"
+             style="stroke-width:0.2"
+             x="118.89986"
+             y="51.133476"
+             id="tspan2909-1">B</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:3.52778px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;stroke:#000000;stroke-width:0.257239"
+           x="67.671791"
+           y="1.0088882"
+           id="text5460"><tspan
+             sodipodi:role="line"
+             style="font-size:3.52778px;stroke-width:0.257239"
+             x="67.671791"
+             y="1.0088882"
+             id="tspan5464">Modélisation TUYAU (SEG3)</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:3.52778px;stroke-width:0.257239"
+             x="67.671791"
+             y="5.4186134"
+             id="tspan3982" /><tspan
+             sodipodi:role="line"
+             style="font-size:3.52778px;stroke-width:0.257239"
+             x="67.671791"
+             y="9.8283386"
+             id="tspan5484">Conditions aux limites</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="14.238064"
+             id="tspan6240">DDL de poutre pour A et B:</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="18.647789"
+             id="tspan7742">- DX = DY = DZ = DRX = DRY = DRZ = 0</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="23.057514"
+             id="tspan440" /><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="27.467239"
+             id="tspan432">DDL de coque pour A et B:</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="31.876965"
+             id="tspan434">Ulm = Vlm = Wlm = 0          (pour m = 2, 3)</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="36.28669"
+             id="tspan436">UOm = VOm = WOm = 0    (pour m = 2, 3)</tspan><tspan
+             sodipodi:role="line"
+             style="font-size:2.82222px;stroke-width:0.257239"
+             x="67.671791"
+             y="40.696415"
+             id="tspan438">Wl1 = WO1 = WO = 0</tspan></text>
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:0.2;marker-end:url(#Arrow2)"
+           d="m 50.20754,45.027448 7,-6"
+           id="path888" />
+        <text
+           xml:space="preserve"
+           style="font-size:3.175px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           x="59.614784"
+           y="37.769314"
+           id="text17625-5-3-3-3"><tspan
+             sodipodi:role="line"
+             id="tspan17623-9-6-5-6"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#000000;fill-opacity:1;stroke-width:0.1"
+             x="59.614784"
+             y="37.769314">y</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

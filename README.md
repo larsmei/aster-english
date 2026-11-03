@@ -1,6 +1,6 @@
 # Aster English
 
-Unofficial bilingual reading edition of the [Code_Aster](https://www.code-aster.org/) **User’s manual** and **Reference manual**. French is the DocAster text of 22 October 2026. English is a reading translation.
+Unofficial bilingual reading edition of the [Code_Aster](https://www.code-aster.org/) **User’s manual**, **Reference manual** and **Validation manual**. French is the DocAster text of 22 October 2026. English is a reading translation.
 
 This is not an EDF publication. Command names, keywords and concept types stay in their original form.
 
@@ -10,8 +10,9 @@ This is not an EDF publication. Command names, keywords and concept types stay i
 | --- | --- | --- |
 | User’s manual | U0, U1, U2, U3, U4, U7 | French and English |
 | Reference manual | R0, R3, R4, R5, R6, R7 | French and English |
+| Validation manual | V0, V1, V2, V3, V4, V5, V6, V7, V8, V9 | French and English |
 
-U5, U6, R1 and R2 are not part of this edition. The A, D and V manuals are not included.
+U5, U6, R1 and R2 are not part of this edition. The A and D manuals are not included.
 
 ## Static copy
 
@@ -20,6 +21,7 @@ The latest zip is on the [releases page](https://github.com/larsmei/aster-englis
 - Home: `index.html`
 - A User document: `index.html#/doc/u0.00.01`
 - A Reference document: `index.html#/doc/r3.01.00`
+- A Validation document: `index.html#/doc/v3.01.001`
 
 French and English are switched in the page header. Addresses use a `#` so a plain file host can serve the site.
 
@@ -45,5 +47,6 @@ French sources live in `src/content/fr/`, English texts in `src/content/en/`. Ea
 
 - [User’s manual, DocAster](https://codeaster.gitlab.io/doc/docaster/manuals/man_u/other_pages/list/index.html)
 - [Reference manual list, v17](https://code-aster.org/doc/v17/manuals/man_r/other_pages/list/index.html)
+- [Validation manual, DocAster](https://codeaster.gitlab.io/doc/docaster/manuals/man_v/other_pages/list/index.html)
 
 The texts in this repository follow the DocAster edition, because some v17 pages have no source text.

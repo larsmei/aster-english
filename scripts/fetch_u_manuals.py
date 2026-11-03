@@ -6,6 +6,7 @@ from __future__ import annotations
 import re
 import sys
 import urllib.request
+import warnings
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -454,11 +455,12 @@ def build_doc(docid: str) -> tuple[str, int, int]:
 
 
 def doc_ids(manual: str = "u") -> list[str]:
+    html = fetch(f"{BASE}/other_pages/list/index.html")
     if manual == "r":
-        html = fetch(f"{BASE}/other_pages/list/index.html")
         ids = re.findall(r"/man_r/r\d+/(r\d+\.\d+\.\d+)/index\.html", html)
+    elif manual == "v":
+        ids = re.findall(r"/man_v/v\d+/(v\d+\.\d+\.\d+)/index\.html", html)
     else:
-        html = fetch(f"{BASE}/other_pages/list/index.html")
         ids = re.findall(r"/man_u/u[2-7]/(u[2-7]\.\d+\.\d+)/index\.html", html)
     seen = []
     for docid in ids:
@@ -469,6 +471,7 @@ def doc_ids(manual: str = "u") -> list[str]:
 
 def main():
     global BASE
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
     args = sys.argv[1:]
     manual = "u"
     if args[:1] == ["--manual"]:
@@ -476,11 +479,13 @@ def main():
         args = args[2:]
     if manual == "r":
         BASE = "https://codeaster.gitlab.io/doc/docaster/manuals/man_r"
+    elif manual == "v":
+        BASE = "https://codeaster.gitlab.io/doc/docaster/manuals/man_v"
     ids = args or doc_ids(manual)
     print(f"documents {len(ids)}", flush=True)
     ok = 0
     failed = []
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=12) as pool:
         futures = {pool.submit(build_doc, docid): docid for docid in ids}
         for future in as_completed(futures):
             docid = futures[future]
