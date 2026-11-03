@@ -165,7 +165,7 @@ function PartList({
         </ul>
       )}
       <p className="mt-3 font-sans text-sm text-muted">
-        {fr ? "Ouvrir un bloc pour voir ses documents. La recherche en haut couvre tout le manuel." : "Open a block to see its documents. The search above covers the whole manual."}
+        {fr ? "Ouvrir un bloc pour voir ses documents. La recherche en haut couvre les titres et le début de chaque document." : "Open a block to see its documents. Search matches titles and the opening of each document."}
       </p>
     </section>
   );

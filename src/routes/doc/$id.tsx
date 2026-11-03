@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { CATALOG, docById } from "@/content/catalog";
-import { documentMarkdown, titleOf, tocOf } from "@/content/docs";
+import { docTitle, loadDocument, tocOf, type TocItem } from "@/content/docs";
 import { ManualShell } from "@/components/manual-shell";
 import { MarkdownView } from "@/components/markdown-view";
 import { useManual } from "@/lib/manual-store";
+import type { Lang } from "@/content/catalog";
 
 export const Route = createFileRoute("/doc/$id")({
   component: DocPage,
@@ -14,6 +16,23 @@ function DocPage() {
   const lang = useManual((s) => s.lang);
   const meta = docById(id);
   const fr = lang === "fr";
+  const [body, setBody] = useState<{ md: string; lang: Lang } | null>(null);
+
+  useEffect(() => {
+    if (!meta) return;
+    let cancel = false;
+    setBody(null);
+    loadDocument(meta.id, lang)
+      .then((result) => {
+        if (!cancel) setBody(result);
+      })
+      .catch(() => {
+        if (!cancel) setBody({ md: "", lang });
+      });
+    return () => {
+      cancel = true;
+    };
+  }, [meta, lang]);
 
   if (!meta) {
     return (
@@ -29,12 +48,12 @@ function DocPage() {
     );
   }
 
-  const { md, lang: shown } = documentMarkdown(meta.id, lang);
-  const title = titleOf(md, meta.id);
+  const shown = body?.lang ?? lang;
+  const title = docTitle(meta.id, shown);
   const index = CATALOG.findIndex((doc) => doc.id === meta.id);
   const prev = index > 0 ? CATALOG[index - 1] : undefined;
   const next = index < CATALOG.length - 1 ? CATALOG[index + 1] : undefined;
-  const toc = tocOf(md);
+  const toc: TocItem[] = body ? tocOf(body.md) : [];
 
   return (
     <ManualShell toc={toc}>
@@ -51,7 +70,18 @@ function DocPage() {
             <span className="text-copper">{fr ? "Traduction pas encore disponible" : "English text not ready — showing French"}</span>
           ) : null}
         </div>
-        <MarkdownView markdown={md} />
+        {body ? (
+          body.md ? (
+            <MarkdownView markdown={body.md} />
+          ) : (
+            <p className="font-serif text-lg text-muted">{fr ? "Le texte n’a pas pu être chargé." : "The text could not be loaded."}</p>
+          )
+        ) : (
+          <>
+            <h1 className="font-serif text-3xl leading-tight text-ink sm:text-4xl">{title}</h1>
+            <p className="mt-4 font-serif text-lg text-muted">{fr ? "Chargement du texte…" : "Loading the text…"}</p>
+          </>
+        )}
         <nav className="mt-12 grid gap-3 border-t border-line pt-6 sm:grid-cols-2">
           {prev ? (
             <Link
@@ -63,9 +93,7 @@ function DocPage() {
                 {fr ? "Précédent" : "Previous"}
               </span>
               <span className="mt-1 block font-mono text-xs text-copper">{prev.id}</span>
-              <span className="mt-1 block font-serif text-lg leading-snug">
-                {titleOf(documentMarkdown(prev.id, lang).md, prev.id)}
-              </span>
+              <span className="mt-1 block font-serif text-lg leading-snug">{docTitle(prev.id, lang)}</span>
             </Link>
           ) : (
             <span />
@@ -80,9 +108,7 @@ function DocPage() {
                 {fr ? "Suivant" : "Next"}
               </span>
               <span className="mt-1 block font-mono text-xs text-copper">{next.id}</span>
-              <span className="mt-1 block font-serif text-lg leading-snug">
-                {titleOf(documentMarkdown(next.id, lang).md, next.id)}
-              </span>
+              <span className="mt-1 block font-serif text-lg leading-snug">{docTitle(next.id, lang)}</span>
             </Link>
           ) : null}
         </nav>

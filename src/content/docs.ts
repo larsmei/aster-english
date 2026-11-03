@@ -1,38 +1,38 @@
 import { CATALOG, type Lang } from "./catalog";
+import { HEADS } from "./heads";
 
-const frModules = import.meta.glob("./fr/*.md", {
+const frLoaders = import.meta.glob("./fr/*.md", {
   query: "?raw",
   import: "default",
-  eager: true,
-}) as Record<string, string>;
+}) as Record<string, () => Promise<string>>;
 
-const enModules = import.meta.glob("./en/*.md", {
+const enLoaders = import.meta.glob("./en/*.md", {
   query: "?raw",
   import: "default",
-  eager: true,
-}) as Record<string, string>;
+}) as Record<string, () => Promise<string>>;
 
-function indexModules(mods: Record<string, string>): Record<string, string> {
-  const out: Record<string, string> = {};
-  for (const [path, text] of Object.entries(mods)) {
+function indexLoaders(mods: Record<string, () => Promise<string>>): Record<string, () => Promise<string>> {
+  const out: Record<string, () => Promise<string>> = {};
+  for (const [path, load] of Object.entries(mods)) {
     const id = path.split("/").pop()?.replace(/\.md$/, "");
-    if (id) out[id] = text;
+    if (id) out[id] = load;
   }
   return out;
 }
 
-const FR = indexModules(frModules);
-const EN = indexModules(enModules);
+const FR = indexLoaders(frLoaders);
+const EN = indexLoaders(enLoaders);
 
 export function hasEnglish(id: string): boolean {
   return Boolean(EN[id]);
 }
 
-export function documentMarkdown(id: string, lang: Lang): { md: string; lang: Lang } {
-  if (lang === "en" && EN[id]) return { md: EN[id], lang: "en" };
-  if (lang === "fr" && FR[id]) return { md: FR[id], lang: "fr" };
-  if (EN[id]) return { md: EN[id], lang: "en" };
-  return { md: FR[id] ?? "", lang: "fr" };
+export async function loadDocument(id: string, lang: Lang): Promise<{ md: string; lang: Lang }> {
+  if (lang === "en" && EN[id]) return { md: await EN[id](), lang: "en" };
+  if (lang === "fr" && FR[id]) return { md: await FR[id](), lang: "fr" };
+  if (EN[id]) return { md: await EN[id](), lang: "en" };
+  if (FR[id]) return { md: await FR[id](), lang: "fr" };
+  return { md: "", lang };
 }
 
 export function titleOf(md: string, fallback: string): string {
@@ -47,17 +47,11 @@ function cleanTitle(raw: string, id: string): string {
   return stripped || raw;
 }
 
-const titleCache = new Map<string, string>();
-
 export function docTitle(id: string, lang: Lang): string {
-  const shown: Lang = lang === "en" && EN[id] ? "en" : FR[id] ? "fr" : "en";
-  const key = `${id}:${shown}`;
-  const cached = titleCache.get(key);
-  if (cached) return cached;
-  const md = shown === "en" ? (EN[id] ?? "") : (FR[id] ?? EN[id] ?? "");
-  const title = titleOf(md, id);
-  titleCache.set(key, title);
-  return title;
+  const head = HEADS[id];
+  if (!head) return id;
+  if (lang === "en") return head.enTitle || head.frTitle || id;
+  return head.frTitle || head.enTitle || id;
 }
 
 export function familyOf(id: string): string {
@@ -85,16 +79,6 @@ export function tocOf(md: string): TocItem[] {
   return items;
 }
 
-function plain(md: string): string {
-  return md
-    .replace(/```[\s\S]*?```/g, (block) => " " + block.replace(/```\w*/g, " ") + " ")
-    .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
-    .replace(/\[([^\]]+)]\([^)]*\)/g, "$1")
-    .replace(/[$`>#*_]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 export type Hit = {
   id: string;
   title: string;
@@ -106,15 +90,17 @@ export function searchDocs(query: string, lang: Lang): Hit[] {
   if (q.length < 2) return [];
   const hits: Hit[] = [];
   for (const meta of CATALOG) {
-    const { md } = documentMarkdown(meta.id, lang);
-    const title = titleOf(md, meta.id);
-    const text = `${title} ${plain(md)}`;
-    const at = text.toLowerCase().indexOf(q);
-    if (at < 0 && !meta.id.includes(q) && !title.toLowerCase().includes(q)) continue;
-    const pos = at < 0 ? 0 : at;
-    const start = Math.max(0, pos - 70);
-    const snippet = (start > 0 ? "…" : "") + text.slice(start, pos + q.length + 90).trim() + "…";
+    const title = docTitle(meta.id, lang);
+    const head = HEADS[meta.id];
+    const lead = head ? (lang === "en" ? head.enLead : head.frLead) : "";
+    const blurb = meta.blurb[lang] ?? "";
+    const raw = `${meta.id} ${title} ${blurb} ${lead}`;
+    const at = raw.toLowerCase().indexOf(q);
+    if (at < 0) continue;
+    const start = Math.max(0, at - 60);
+    const snippet = (start > 0 ? "…" : "") + raw.slice(start, at + q.length + 80).trim() + "…";
     hits.push({ id: meta.id, title, snippet });
+    if (hits.length === 30) break;
   }
   return hits;
 }
