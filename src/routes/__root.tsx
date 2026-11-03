@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Unofficial English reading edition of the Code_Aster User's manual, with the French Reference manual.",
+          "Unofficial English reading edition of the Code_Aster User's and Reference manuals.",
       },
       { name: "theme-color", content: "#0e4c5c" },
     ],

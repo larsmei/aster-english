@@ -24,8 +24,8 @@ function Home() {
         </h1>
         <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-muted">
           {fr
-            ? "Les fascicules U0 à U4 et U7 du manuel d’utilisation, et les documents de référence R0, R3 à R7. U5, U6, R1 et R2 ne font pas partie de cette édition. L’anglais couvre le manuel d’utilisation ; les documents de référence sont affichés en français."
-            : "Booklets U0 to U4 and U7 of the User’s manual, and Reference documents R0 and R3 to R7. U5, U6, R1 and R2 are not part of this edition. English covers the User’s manual; the Reference documents are shown in French."}
+            ? "Les fascicules U0 à U4 et U7 du manuel d’utilisation, et les documents de référence R0, R3 à R7, en français et en anglais. U5, U6, R1 et R2 ne font pas partie de cette édition."
+            : "Booklets U0 to U4 and U7 of the User’s manual, and Reference documents R0 and R3 to R7, in French and in English. U5, U6, R1 and R2 are not part of this edition."}
         </p>
         <p className="mt-3 max-w-2xl font-sans text-sm leading-relaxed text-muted">
           {fr

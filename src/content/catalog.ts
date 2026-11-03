@@ -4434,7 +4434,7 @@ export const CATALOG: DocMeta[] = [
     part: "R5",
     sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r5/r5.03.11/index.html",
     blurb: {
-      en: "Résumé :",
+      en: "Integration of single-crystal and polycrystalline elastoviscoplastic laws, explicit or implicit, for aggregates and homogenised polycrystals.",
       fr: "Résumé :",
     },
   },
@@ -4884,7 +4884,7 @@ export const CATALOG: DocMeta[] = [
     part: "R6",
     sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r6/r6.02.03/index.html",
     blurb: {
-      en: "Résumé",
+      en: "Direct sparse linear solvers in Code_Aster, and the numerical and software integration of the MUMPS package.",
       fr: "Résumé",
     },
   },
@@ -5406,7 +5406,7 @@ export const CATALOG: DocMeta[] = [
     part: "R7",
     sourceUrl: "https://codeaster.gitlab.io/doc/docaster/manuals/man_r/r7/r7.02.13/index.html",
     blurb: {
-      en: "Ce document présente les algorithmes de propagation de fissures dans le cadre de la méthode X-FEM R7.02.12. La fissure est alors représentée par des level-sets. La propagation…",
+      en: "Crack-propagation algorithms in X-FEM: how the level-sets are updated from the advance of the crack front.",
       fr: "Ce document présente les algorithmes de propagation de fissures dans le cadre de la méthode X-FEM R7.02.12. La fissure est alors représentée par des level-sets. La propagation…",
     },
   },
