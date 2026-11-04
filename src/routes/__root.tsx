@@ -1,10 +1,13 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { ReadingPlace } from "@/lib/reading-place";
 import { isStaticSite } from "@/lib/static-site";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Aster English";
+const THEME_BOOT =
+  '(function(){try{var t=localStorage.getItem("aster-theme");if(t&&t!=="paper")document.documentElement.setAttribute("data-theme",t);var w=parseInt(localStorage.getItem("aster-nav")||"",10);if(w>=200&&w<=520)document.documentElement.style.setProperty("--nav-width",w+"px");}catch(e){}})();';
 
 export const Route = createRootRoute({
   head: () => ({
@@ -34,6 +37,7 @@ export const Route = createRootRoute({
     isStaticSite ? (
       <>
         <PreviewHostBridge />
+        <ReadingPlace />
         <AuthProvider>
           <Outlet />
         </AuthProvider>
@@ -41,10 +45,12 @@ export const Route = createRootRoute({
     ) : (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
         <HeadContent />
       </head>
       <body>
         <PreviewHostBridge />
+        <ReadingPlace />
         <AuthProvider>
           <Outlet />
         </AuthProvider>

@@ -5,34 +5,85 @@ import { docTitle, loadDocument, tocOf, type TocItem } from "@/content/docs";
 import { ManualShell } from "@/components/manual-shell";
 import { MarkdownView } from "@/components/markdown-view";
 import { useManual } from "@/lib/manual-store";
+import { notifyContentReady } from "@/lib/reading-place";
 import type { Lang } from "@/content/catalog";
 
 export const Route = createFileRoute("/doc/$id")({
   component: DocPage,
 });
 
+const memory = new Map<string, { md: string; lang: Lang }>();
+
+function remember(key: string, value: { md: string; lang: Lang }) {
+  if (memory.has(key)) memory.delete(key);
+  memory.set(key, value);
+  while (memory.size > 24) {
+    const oldest = memory.keys().next().value;
+    if (!oldest) break;
+    memory.delete(oldest);
+  }
+}
+
 function DocPage() {
   const { id } = Route.useParams();
   const lang = useManual((s) => s.lang);
   const meta = docById(id);
   const fr = lang === "fr";
-  const [body, setBody] = useState<{ md: string; lang: Lang } | null>(null);
+  const key = `${id}:${lang}`;
+  const [body, setBody] = useState<{ key: string; md: string; lang: Lang } | null>(() => {
+    const hit = memory.get(key);
+    return hit ? { key, ...hit } : null;
+  });
+
+  if (meta && body && body.key !== key) {
+    const hit = memory.get(key);
+    const sameDoc = body.key.startsWith(`${id}:`);
+    if (hit) setBody({ key, ...hit });
+    else if (!sameDoc) setBody(null);
+  }
+
+  const ready = body?.key === key ? body : null;
 
   useEffect(() => {
     if (!meta) return;
+    if (body?.key === key) return;
     let cancel = false;
-    setBody(null);
+    const keepScroll = body?.key.startsWith(`${meta.id}:`) ? window.scrollY : null;
     loadDocument(meta.id, lang)
       .then((result) => {
-        if (!cancel) setBody(result);
+        if (cancel) return;
+        const entry = { md: result.md, lang: result.lang };
+        remember(key, entry);
+        setBody({ key, ...entry });
+        if (keepScroll != null) {
+          requestAnimationFrame(() => window.scrollTo(0, keepScroll));
+        }
       })
       .catch(() => {
-        if (!cancel) setBody({ md: "", lang });
+        if (!cancel) setBody({ key, md: "", lang });
       });
     return () => {
       cancel = true;
     };
-  }, [meta, lang]);
+  }, [body, key, lang, meta]);
+
+  useEffect(() => {
+    if (!ready?.md) return;
+    notifyContentReady();
+    const root = document.querySelector("article .manual");
+    if (!root) return;
+    const pending = Array.from(root.querySelectorAll("img")).filter((img) => !img.complete);
+    if (pending.length === 0) return;
+    let left = pending.length;
+    const done = () => {
+      left -= 1;
+      if (left <= 0) notifyContentReady();
+    };
+    pending.forEach((img) => {
+      img.addEventListener("load", done, { once: true });
+      img.addEventListener("error", done, { once: true });
+    });
+  }, [ready]);
 
   if (!meta) {
     return (

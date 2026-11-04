@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
@@ -7,6 +7,14 @@ import remarkMath from "remark-math";
 import { slug } from "@/content/docs";
 import { ASTER_MACROS } from "@/lib/aster-macros";
 import { isStaticSite } from "@/lib/static-site";
+
+function safeHash(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
 
 function assetSrc(src: string | undefined): string | undefined {
   if (!src || !isStaticSite || !src.startsWith("/") || src.startsWith("//")) return src;
@@ -36,6 +44,7 @@ function Heading(level: 2 | 3 | 4) {
 }
 
 export function MarkdownView({ markdown }: { markdown: string }) {
+  const router = useRouter();
   const prepared = markdown.replace(/\]\(doc:([a-z0-9.]+)\)/g, "](/doc/$1)");
   return (
     <div className="manual">
@@ -63,6 +72,20 @@ export function MarkdownView({ markdown }: { markdown: string }) {
             );
           },
           a: ({ href, children }) => {
+            if (href?.startsWith("#")) {
+              const id = safeHash(href.slice(1));
+              return (
+                <a
+                  href={href}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    void router.navigate({ hash: id });
+                  }}
+                >
+                  {children}
+                </a>
+              );
+            }
             if (href?.startsWith("/doc/")) {
               const id = href.slice("/doc/".length);
               return (

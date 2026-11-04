@@ -1,4 +1,4 @@
-import { CATALOG, type Lang } from "./catalog";
+import type { Lang } from "./catalog";
 import { HEADS } from "./heads";
 
 const frLoaders = import.meta.glob("./fr/*.md", {
@@ -77,30 +77,4 @@ export function tocOf(md: string): TocItem[] {
     items.push({ level: match[1].length, text, id: slug(text) });
   }
   return items;
-}
-
-export type Hit = {
-  id: string;
-  title: string;
-  snippet: string;
-};
-
-export function searchDocs(query: string, lang: Lang): Hit[] {
-  const q = query.trim().toLowerCase();
-  if (q.length < 2) return [];
-  const hits: Hit[] = [];
-  for (const meta of CATALOG) {
-    const title = docTitle(meta.id, lang);
-    const head = HEADS[meta.id];
-    const lead = head ? (lang === "en" ? head.enLead : head.frLead) : "";
-    const blurb = meta.blurb[lang] ?? "";
-    const raw = `${meta.id} ${title} ${blurb} ${lead}`;
-    const at = raw.toLowerCase().indexOf(q);
-    if (at < 0) continue;
-    const start = Math.max(0, at - 60);
-    const snippet = (start > 0 ? "…" : "") + raw.slice(start, at + q.length + 80).trim() + "…";
-    hits.push({ id: meta.id, title, snippet });
-    if (hits.length === 30) break;
-  }
-  return hits;
 }

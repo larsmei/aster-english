@@ -1,17 +1,25 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, Search, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Link, useRouter, useRouterState } from "@tanstack/react-router";
+import { Menu, Palette, Search, X } from "lucide-react";
+import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
 import { BOOKS, CATALOG, PARTS, type Lang } from "@/content/catalog";
-import { docTitle, familyOf, searchDocs, type TocItem } from "@/content/docs";
+import { docTitle, familyOf, type TocItem } from "@/content/docs";
 import { familyLabel } from "@/content/families";
+import { preloadSearch, searchDocs, type Hit } from "@/lib/full-text";
 import { useManual } from "@/lib/manual-store";
+import { clampNav, isTheme, NAV_DEFAULT, NAV_MAX, NAV_MIN, readNavWidth, THEMES, type ThemeId } from "@/lib/themes";
 
-function useLangHydration() {
+function useManualPrefs() {
   const setLang = useManual((s) => s.setLang);
-  useEffect(() => {
-    const stored = window.localStorage.getItem("aster-lang");
-    if (stored === "fr" || stored === "en") setLang(stored);
-  }, [setLang]);
+  const setTheme = useManual((s) => s.setTheme);
+  const setNavWidth = useManual((s) => s.setNavWidth);
+  useLayoutEffect(() => {
+    const storedLang = window.localStorage.getItem("aster-lang");
+    if (storedLang === "fr" || storedLang === "en") setLang(storedLang);
+    const storedTheme = window.localStorage.getItem("aster-theme");
+    if (isTheme(storedTheme)) setTheme(storedTheme);
+    const storedNav = Number(window.localStorage.getItem("aster-nav"));
+    if (Number.isFinite(storedNav) && storedNav > 0) setNavWidth(clampNav(storedNav));
+  }, [setLang, setNavWidth, setTheme]);
 }
 
 export function ManualShell({
@@ -21,33 +29,108 @@ export function ManualShell({
   children: ReactNode;
   toc?: TocItem[];
 }) {
-  useLangHydration();
+  useManualPrefs();
   const lang = useManual((s) => s.lang);
   const setLang = useManual((s) => s.setLang);
   const query = useManual((s) => s.query);
   const setQuery = useManual((s) => s.setQuery);
   const navOpen = useManual((s) => s.navOpen);
   const setNavOpen = useManual((s) => s.setNavOpen);
+  const theme = useManual((s) => s.theme);
+  const setTheme = useManual((s) => s.setTheme);
+  const navWidth = useManual((s) => s.navWidth);
+  const setNavWidth = useManual((s) => s.setNavWidth);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const hits = useMemo(() => searchDocs(query, lang), [query, lang]);
-  const searchRef = useRef<HTMLDivElement>(null);
+  const [found, setFound] = useState<{ hits: Hit[]; total: number; phase: "idle" | "search" | "error" }>({
+    hits: [],
+    total: 0,
+    phase: "idle",
+  });
+
+  const showHits = query.trim().length >= 2;
+
+  useEffect(() => {
+    const q = query.trim();
+    if (q.length < 2) {
+      setFound({ hits: [], total: 0, phase: "idle" });
+      return;
+    }
+    let cancel = false;
+    setFound((current) => ({ ...current, hits: [], total: 0, phase: "search" }));
+    const timer = window.setTimeout(() => {
+      searchDocs(q, lang)
+        .then((result) => {
+          if (!cancel) setFound({ hits: result.hits, total: result.total, phase: "idle" });
+        })
+        .catch(() => {
+          if (!cancel) setFound({ hits: [], total: 0, phase: "error" });
+        });
+    }, 140);
+    return () => {
+      cancel = true;
+      window.clearTimeout(timer);
+    };
+  }, [lang, query]);
 
   useEffect(() => {
     setNavOpen(false);
   }, [pathname, setNavOpen]);
 
   useEffect(() => {
-    function onKey(event: KeyboardEvent) {
+    function onKey(event: globalThis.KeyboardEvent) {
       if (event.key === "Escape") setQuery("");
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [setQuery]);
 
+  function onResizeDown(event: PointerEvent<HTMLDivElement>) {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    const handle = event.currentTarget;
+    handle.setPointerCapture(event.pointerId);
+    const startX = event.clientX;
+    const startW = readNavWidth();
+    const previousUserSelect = document.body.style.userSelect;
+    document.body.style.userSelect = "none";
+    let latest = startW;
+    const move = (ev: globalThis.PointerEvent) => {
+      latest = clampNav(startW + ev.clientX - startX);
+      document.documentElement.style.setProperty("--nav-width", `${latest}px`);
+      handle.setAttribute("aria-valuenow", String(latest));
+    };
+    const up = (ev: globalThis.PointerEvent) => {
+      if (handle.hasPointerCapture(ev.pointerId)) handle.releasePointerCapture(ev.pointerId);
+      handle.removeEventListener("pointermove", move);
+      handle.removeEventListener("pointerup", up);
+      handle.removeEventListener("pointercancel", up);
+      document.body.style.userSelect = previousUserSelect;
+      setNavWidth(latest);
+    };
+    handle.addEventListener("pointermove", move);
+    handle.addEventListener("pointerup", up);
+    handle.addEventListener("pointercancel", up);
+  }
+
+  function onResizeKey(event: KeyboardEvent<HTMLDivElement>) {
+    const current = readNavWidth();
+    const step = event.shiftKey ? 48 : 16;
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      setNavWidth(clampNav(current - step));
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      setNavWidth(clampNav(current + step));
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      setNavWidth(NAV_DEFAULT);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-bg text-ink">
       <header className="sticky top-0 z-30 border-b border-line bg-bg">
-        <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4">
+        <div className="shell-max flex h-16 items-center gap-3 px-4">
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line bg-paper lg:hidden"
@@ -56,25 +139,25 @@ export function ManualShell({
           >
             <Menu className="size-5" />
           </button>
-          <Link to="/" className="min-w-0 shrink-0 leading-tight">
+          <Link to="/" className="min-w-0 leading-tight">
             <span className="block font-sans text-xs font-semibold tracking-widest text-copper uppercase">
               Code_Aster
             </span>
-            <span className="block font-serif text-lg leading-none text-ink">Aster English</span>
+            <span className="block truncate font-serif text-lg leading-none text-ink">Aster English</span>
           </Link>
-          <div ref={searchRef} className="relative mx-auto hidden w-full max-w-md sm:block">
+          <div className="relative mx-auto hidden w-full max-w-md sm:block">
             <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted" />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder={lang === "fr" ? "Chercher une commande, un mot…" : "Search a command or a term…"}
+              onFocus={() => void preloadSearch(lang)}
+              placeholder={lang === "fr" ? "Rechercher dans tout le texte…" : "Search the full text…"}
               className="h-11 w-full rounded-md border border-line bg-paper pr-3 pl-10 font-sans text-sm text-ink outline-none placeholder:text-muted focus:border-accent"
               aria-label={lang === "fr" ? "Recherche" : "Search"}
             />
-            {query.trim().length >= 2 && (
-              <SearchResults hits={hits} lang={lang} onPick={() => setQuery("")} />
-            )}
+            {showHits && <SearchResults found={found} lang={lang} onPick={() => setQuery("")} />}
           </div>
+          <ThemeSwitch lang={lang} theme={theme} setTheme={setTheme} />
           <LangSwitch lang={lang} setLang={setLang} />
         </div>
         <div className="border-t border-line px-4 py-2 sm:hidden">
@@ -83,22 +166,33 @@ export function ManualShell({
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder={lang === "fr" ? "Chercher…" : "Search…"}
+              onFocus={() => void preloadSearch(lang)}
+              placeholder={lang === "fr" ? "Rechercher…" : "Search…"}
               className="h-11 w-full rounded-md border border-line bg-paper pr-3 pl-10 font-sans text-sm outline-none placeholder:text-muted focus:border-accent"
               aria-label={lang === "fr" ? "Recherche" : "Search"}
             />
-            {query.trim().length >= 2 && (
-              <SearchResults hits={hits} lang={lang} onPick={() => setQuery("")} />
-            )}
+            {showHits && <SearchResults found={found} lang={lang} onPick={() => setQuery("")} />}
           </div>
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-6xl lg:grid-cols-[15rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)_13rem]">
-        <aside className="hidden border-r border-line lg:block">
+      <div className={`shell-max shell-grid${toc && toc.length > 0 ? " has-toc" : ""}`}>
+        <aside className="relative hidden border-r border-line lg:block">
           <div className="sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto">
             <DocNav lang={lang} pathname={pathname} />
           </div>
+          <div
+            role="separator"
+            aria-orientation="vertical"
+            aria-valuemin={NAV_MIN}
+            aria-valuemax={NAV_MAX}
+            aria-valuenow={navWidth}
+            aria-label={lang === "fr" ? "Largeur du sommaire" : "Contents width"}
+            tabIndex={0}
+            className="nav-resize"
+            onPointerDown={onResizeDown}
+            onKeyDown={onResizeKey}
+          />
         </aside>
         <main className="min-w-0">{children}</main>
         <aside className="hidden xl:block">
@@ -110,7 +204,7 @@ export function ManualShell({
         <div className="fixed inset-0 z-40 lg:hidden">
           <button
             type="button"
-            className="absolute inset-0 bg-ink/40"
+            className="absolute inset-0 bg-scrim"
             aria-label={lang === "fr" ? "Fermer" : "Close"}
             onClick={() => setNavOpen(false)}
           />
@@ -132,6 +226,76 @@ export function ManualShell({
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function ThemeSwitch({
+  lang,
+  theme,
+  setTheme,
+}: {
+  lang: Lang;
+  theme: ThemeId;
+  setTheme: (theme: ThemeId) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onPointer(event: globalThis.PointerEvent) {
+      if (!ref.current?.contains(event.target as Node)) setOpen(false);
+    }
+    function onKey(event: globalThis.KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative shrink-0">
+      <button
+        type="button"
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-label={lang === "fr" ? "Thème de lecture" : "Reading theme"}
+        className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line bg-paper text-ink"
+        onClick={() => setOpen((value) => !value)}
+      >
+        <Palette className="size-5" />
+      </button>
+      {open ? (
+        <div role="menu" className="absolute right-0 z-40 mt-2 w-52 rounded-md border border-line bg-paper p-1 shadow-lg">
+          {THEMES.map((item) => {
+            const selected = theme === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                role="menuitemradio"
+                aria-checked={selected}
+                className={
+                  "flex w-full items-center gap-3 rounded-md px-3 py-2 text-left font-sans text-sm " +
+                  (selected ? "bg-accent-soft text-accent" : "text-ink hover:bg-accent-soft")
+                }
+                onClick={() => {
+                  setTheme(item.id);
+                  setOpen(false);
+                }}
+              >
+                <span className={`theme-swatch theme-swatch-${item.id}`} />
+                {lang === "fr" ? item.fr : item.en}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -158,23 +322,30 @@ function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (lang: Lang) => vo
 }
 
 function SearchResults({
-  hits,
+  found,
   lang,
   onPick,
 }: {
-  hits: { id: string; title: string; snippet: string }[];
+  found: { hits: Hit[]; total: number; phase: "idle" | "search" | "error" };
   lang: Lang;
   onPick: () => void;
 }) {
+  const fr = lang === "fr";
   return (
     <div className="absolute top-12 right-0 left-0 z-40 max-h-96 overflow-y-auto rounded-md border border-line bg-paper shadow-lg">
-      {hits.length === 0 ? (
+      {found.phase === "error" ? (
         <p className="px-4 py-3 font-sans text-sm text-muted">
-          {lang === "fr" ? "Aucun passage." : "No passage matches."}
+          {fr ? "Le texte intégral n’a pas pu être lu." : "The full text could not be read."}
         </p>
+      ) : found.phase === "search" && found.hits.length === 0 ? (
+        <p className="px-4 py-3 font-sans text-sm text-muted">
+          {fr ? "Recherche dans les manuels…" : "Searching the manuals…"}
+        </p>
+      ) : found.hits.length === 0 ? (
+        <p className="px-4 py-3 font-sans text-sm text-muted">{fr ? "Aucun passage." : "No passage matches."}</p>
       ) : (
         <ul>
-          {hits.map((hit) => (
+          {found.hits.map((hit) => (
             <li key={hit.id} className="border-b border-line last:border-b-0">
               <Link
                 to="/doc/$id"
@@ -188,6 +359,13 @@ function SearchResults({
               </Link>
             </li>
           ))}
+          {found.total > found.hits.length ? (
+            <li className="px-4 py-2 font-sans text-xs text-muted">
+              {fr
+                ? `${found.hits.length} sur ${found.total} documents`
+                : `${found.hits.length} of ${found.total} documents`}
+            </li>
+          ) : null}
         </ul>
       )}
     </div>
@@ -195,6 +373,7 @@ function SearchResults({
 }
 
 function PageToc({ toc, lang }: { toc: TocItem[]; lang: Lang }) {
+  const router = useRouter();
   const chapters = toc.filter((item) => item.level === 2);
   const long = toc.length > 14 && chapters.length > 0;
   const [all, setAll] = useState(false);
@@ -210,7 +389,14 @@ function PageToc({ toc, lang }: { toc: TocItem[]; lang: Lang }) {
       <ul className="space-y-1">
         {shown.map((item) => (
           <li key={`${item.level}-${item.id}`} className={item.level === 2 ? "" : item.level === 3 ? "pl-3" : "pl-6"}>
-            <a href={`#${item.id}`} className="block py-1 font-sans text-sm leading-snug text-muted hover:text-accent">
+            <a
+              href={`#${item.id}`}
+              className="block py-1 font-sans text-sm leading-snug text-muted hover:text-accent"
+              onClick={(event) => {
+                event.preventDefault();
+                void router.navigate({ hash: item.id });
+              }}
+            >
               {item.text}
             </a>
           </li>

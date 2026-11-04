@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("aster-theme");
+          if (t && t !== "paper") document.documentElement.setAttribute("data-theme", t);
+          var w = parseInt(localStorage.getItem("aster-nav") || "", 10);
+          if (w >= 200 && w <= 520) document.documentElement.style.setProperty("--nav-width", w + "px");
+        } catch (e) {}
+      })();
+    </script>
     <title>Aster English</title>
     <meta
       name="description"

@@ -23,7 +23,7 @@ The latest zip is on the [releases page](https://github.com/larsmei/aster-englis
 - A Reference document: `index.html#/doc/r3.01.00`
 - A Validation document: `index.html#/doc/v3.01.001`
 
-French and English are switched in the page header. Addresses use a `#` so a plain file host can serve the site.
+French and English are switched in the page header. The header also searches the full text of the open language, and the palette switches the reading theme. Addresses use a `#` so a plain file host can serve the site.
 
 Build that zip yourself with:
 
